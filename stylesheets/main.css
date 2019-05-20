@@ -1,0 +1,93 @@
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+a:hover {
+  color: #585858;
+}
+
+/**
+ * Basic typography style for copy text
+ */
+.navbar {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.navbar-brand {
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.navbar-brand:focus,
+.navbar-brand:hover {
+  text-decoration: none;
+}
+
+.bg-light {
+  background-color: #FFE553 !important;
+}
+
+#nav-items {
+  direction: rtl;
+}
+
+a.bg-light:focus,
+a.bg-light:hover,
+button.bg-light:focus,
+button.bg-light:hover {
+  background-color: #FFE553 !important;
+}
+
+.nav-link {
+  color: #1D1D1D;
+}
+
+.btn-outline-primary {
+  color: #1D1D1D;
+  border-color: #1D1D1D;
+  padding: 4px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 2px;
+}
+
+.btn-outline-primary:hover {
+  background-color: #585858;
+  border-color: #585858;
+}
+
+.btn-outline-primary.focus,
+.btn-outline-primary:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem #585858;
+          box-shadow: 0 0 0 0.2rem #585858;
+}
+
+.btn-outline-primary.disabled,
+.btn-outline-primary:disabled {
+  color: #1D1D1D;
+  background-color: transparent;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.show > .btn-outline-primary.dropdown-toggle {
+  background-color: #1D1D1D;
+  border-color: #1D1D1D;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-outline-primary.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem #1D1D1D;
+          box-shadow: 0 0 0 0.2rem #1D1D1D;
+}
+/*# sourceMappingURL=main.css.map */

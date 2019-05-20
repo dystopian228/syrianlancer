@@ -1,0 +1,43 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+// btn-outline-primary
+
+.btn-outline-primary {
+    color: $dark-black;
+    border-color: $dark-black;
+    padding: 4px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 2px;
+}
+
+.btn-outline-primary:hover {
+    background-color: $light-black;
+    border-color: $light-black;
+}
+
+.btn-outline-primary.focus,
+.btn-outline-primary:focus {
+    box-shadow: 0 0 0 .2rem $light-black;
+}
+
+.btn-outline-primary.disabled,
+.btn-outline-primary:disabled {
+    color: $dark-black;
+    background-color: transparent
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.show>.btn-outline-primary.dropdown-toggle {
+    background-color: $dark-black;
+    border-color: $dark-black;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-outline-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem $dark-black;
+}
