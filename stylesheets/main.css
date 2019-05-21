@@ -90,4 +90,8 @@ button.bg-light:hover {
   -webkit-box-shadow: 0 0 0 0.2rem #1D1D1D;
           box-shadow: 0 0 0 0.2rem #1D1D1D;
 }
+
+.login-div {
+  direction: rtl;
+}
 /*# sourceMappingURL=main.css.map */
