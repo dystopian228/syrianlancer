@@ -1,3 +1,39 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+
+footer {
+    text-align: right;
+    padding-top: 24px;
+    background-color: $primary;
+}
+
+h5 {
+    margin-bottom: 24px;
+}
+
+.footer-items {
+    padding: 1px;
+    direction: rtl;
+
+    li {
+        margin-bottom: 20px;
+        list-style: none;
+    }
+}
+
+.copyright {
+    margin: 0px;
+    width: 100%;
+    background-color: $secondary;
+
+    .copyright-ar {
+        text-align: right;
+        direction: rtl;
+    }
+
+    .copyright-en {
+        text-align: left;
+        direction: ltr;
+    }
+}
