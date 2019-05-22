@@ -23,12 +23,19 @@
 }
 
 .bg-light {
-    background-color: $primary !important
+    background-color: $primary !important;
+    font-family: $main-font;
+    font-weight: bold;
 }
 
 #nav-items {
     direction: rtl;
 }
+
+.nav-item>button{
+    font-weight: bold;    
+}
+
 
 a.bg-light:focus,
 a.bg-light:hover,
