@@ -206,7 +206,6 @@ h5 {
   background: url("../images/computers.png") no-repeat fixed center;
   padding-top: 120px;
   padding-bottom: 120px;
-  background-size: cover;
 }
 
 .login-div {
@@ -216,7 +215,7 @@ h5 {
   text-align: right;
   font-family: "Cairo", sans-serif;
   font-size: 20px;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: white;
 }
 
 .login-div > h1 {
@@ -235,8 +234,8 @@ h5 {
 }
 
 .login-btn {
-  color: black;
-  background-color: #ffe241;
+  color: #ffe241;
+  background-color: transparent;
   border-color: #ffe241;
   font-size: 20px;
   font-weight: bold;
@@ -246,8 +245,8 @@ h5 {
 
 .login-btn:hover {
   color: #1D1D1D;
-  border-color: #fae77f;
-  background-color: #fae77f;
+  border-color: #ffe241;
+  background-color: #ffe241;
 }
 
 .login-btn:focus {

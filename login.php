@@ -9,7 +9,7 @@
         <input type="text" name="username" id="username" class="form-control text-box-login" placeholder="أدخل البريد الإلكتروني الخاص بك">
         <p>كلمة المرور:</p> 
         <input type="password" name="password" id="pwd" class="form-control text-box-login" placeholder="أدخل كلمة المرور الخاصة بك"><br>
-        <button id="login-button" class="btn btn-outline-primary login-btn mb-5 p-2">تسجيل الدخول</button>
+        <button id="login-button" class="btn btn-outline-primary login-btn mb-5">تسجيل الدخول</button>
     </div>
 </main>
     
