@@ -1,56 +1,64 @@
-.login-main{
-    background-color: $light-grey;
-    padding-top:20px; 
-    padding-bottom:20px; 
+.login-main {
+    background: url("../images/computers.png") no-repeat fixed center;
+    padding-top: 120px;
+    padding-bottom: 120px;
 
 }
 
 
-.login-div{
+.login-div {
     margin: 10px;
-    padding:30px;
+    padding: 30px;
     direction: rtl;
     text-align: right;
     font-family: $main-font;
     font-size: 20px;
-    background-color: $dark-grey;
+    background-color: white;
 }
 
-.login-div>h1{
+.login-div>h1 {
     font-weight: bold;
     padding: 10px;
     text-align: center;
 }
 
 
-.login-div>p{
+.login-div>p {
     font-weight: bold;
     padding: 10px;
 }
 
-.text-box-login{
+.text-box-login {
     font-size: 18px;
 }
 
-.login-btn{
-    color: $dark-black;
-    background-color: $primary;
-    border-color: $dark-black;
+.login-btn {
+    color: $primary;
+    background-color: transparent;
+    border-color: $primary;
     font-size: 20px;
     font-weight: bold;
+    margin: auto;
+    display: block;
 }
 
-.login-btn:hover{
+.login-btn:hover {
+    color: $dark-black;
+    border-color: $primary;
+    background-color: $primary;
+}
+
+.login-btn:focus {
+    box-shadow: 0 0 0 0.2rem $primary;
+}
+
+.login-btn:active {
     color: white;
-    background-color: rgb(77, 77, 77);
     border-color: $dark-black;
+    background-color: $primary;
 }
 
-.login-btn:focus{
-    box-shadow: 0 0 0 0.2rem rgba(77,77,77, 0.5);
-  }
-
-.col-centered{
+.col-centered {
     float: none;
     margin: 0 auto;
 }
