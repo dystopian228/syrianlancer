@@ -14,6 +14,35 @@ a:active {
   color: #1D1D1D;
 }
 
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Cairo"), local("Cairo-Regular"), url(../../src/fonts/cairo/cairo-1.woff2) format("woff2");
+  unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Cairo"), local("Cairo-Regular"), url(../../src/fonts/cairo/cairo-2.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Cairo"), local("Cairo-Regular"), url(../../src/fonts/cairo/cairo-3.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /**
  * Basic typography style for copy text
  */
@@ -43,10 +72,16 @@ a:active {
 
 .bg-light {
   background-color: #ffe241 !important;
+  font-family: "Cairo", sans-serif;
+  font-weight: bold;
 }
 
 #nav-items {
   direction: rtl;
+}
+
+.nav-item > button {
+  font-weight: bold;
 }
 
 a.bg-light:focus,
@@ -64,9 +99,11 @@ footer {
   text-align: right;
   padding-top: 24px;
   background-color: #ffe241;
+  font-family: "Cairo", sans-serif;
 }
 
 h5 {
+  font-weight: bold;
   margin-bottom: 24px;
 }
 
@@ -85,6 +122,7 @@ h5 {
   width: 100%;
   background-color: #FFE553;
   text-align: center;
+  font-weight: bold;
 }
 
 .btn-outline-primary {
@@ -127,7 +165,58 @@ h5 {
           box-shadow: 0 0 0 0.2rem #1D1D1D;
 }
 
+.login-main {
+  background-color: #E5E5E5;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .login-div {
+  margin: 10px;
+  padding: 30px;
   direction: rtl;
+  text-align: right;
+  font-family: "Cairo", sans-serif;
+  font-size: 20px;
+  background-color: #CCCCCC;
+}
+
+.login-div > h1 {
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.login-div > p {
+  font-weight: bold;
+  padding: 10px;
+}
+
+.text-box-login {
+  font-size: 18px;
+}
+
+.login-btn {
+  color: #1D1D1D;
+  background-color: #ffe241;
+  border-color: #1D1D1D;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.login-btn:hover {
+  color: white;
+  background-color: #4d4d4d;
+  border-color: #1D1D1D;
+}
+
+.login-btn:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(77, 77, 77, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(77, 77, 77, 0.5);
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=main.css.map */

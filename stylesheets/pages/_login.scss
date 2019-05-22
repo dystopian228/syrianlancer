@@ -1,3 +1,56 @@
+.login-main{
+    background-color: $light-grey;
+    padding-top:20px; 
+    padding-bottom:20px; 
+
+}
+
+
 .login-div{
+    margin: 10px;
+    padding:30px;
     direction: rtl;
+    text-align: right;
+    font-family: $main-font;
+    font-size: 20px;
+    background-color: $dark-grey;
+}
+
+.login-div>h1{
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.login-div>p{
+    font-weight: bold;
+    padding: 10px;
+}
+
+.text-box-login{
+    font-size: 18px;
+}
+
+.login-btn{
+    color: $dark-black;
+    background-color: $primary;
+    border-color: $dark-black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.login-btn:hover{
+    color: white;
+    background-color: rgb(77, 77, 77);
+    border-color: $dark-black;
+}
+
+.login-btn:focus{
+    box-shadow: 0 0 0 0.2rem rgba(77,77,77, 0.5);
+  }
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
 }
