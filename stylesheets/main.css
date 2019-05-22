@@ -84,16 +84,7 @@ h5 {
   margin: 0px;
   width: 100%;
   background-color: #FFE553;
-}
-
-.copyright .copyright-ar {
-  text-align: right;
-  direction: rtl;
-}
-
-.copyright .copyright-en {
-  text-align: left;
-  direction: ltr;
+  text-align: center;
 }
 
 .btn-outline-primary {

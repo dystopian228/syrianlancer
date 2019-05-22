@@ -26,14 +26,5 @@ h5 {
     margin: 0px;
     width: 100%;
     background-color: $secondary;
-
-    .copyright-ar {
-        text-align: right;
-        direction: rtl;
-    }
-
-    .copyright-en {
-        text-align: left;
-        direction: ltr;
-    }
+    text-align: center;
 }

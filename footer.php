@@ -1,7 +1,7 @@
 <footer>
 <div class="container">
     <div class="row footer">
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-6">
             <h5>SyrianLancer</h5>
             <ul class="footer-items">
                 <li><a href="#">عن Syrianlancer</a></li>
@@ -10,7 +10,7 @@
                 <li><a href="#">تواصل معنا</a></li>
             </ul>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-6">
         <h5>الأعمال</h5>
             <ul class="footer-items">
             <li><a href="#">الأعمال البرمجية</a></li>
@@ -30,10 +30,7 @@
         </div>
     </div>
 </div>
-<div class="row copyright p-4">
-    <div class="col-sm-6 copyright-en">SyrianLancer © 2019</div>
-    <div class="col-sm-6 copyright-ar">سيريان لانسر © 2019</div>
-</div>
+<div class="copyright p-4">SyrianLancer © 2019</div>
 </footer>
 </body>
 </html>
