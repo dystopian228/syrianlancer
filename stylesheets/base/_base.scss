@@ -2,6 +2,10 @@
 // This file contains very basic styles.
 // -----------------------------------------------------------------------------
 
+* {
+    font-family: $main-font;
+}
+
 a {
     color: $light-black;
 }

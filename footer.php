@@ -1,6 +1,6 @@
 <footer>
 <div class="container">
-    <div class="row footer">
+    <div class="row footer mt-5">
         <div class="col-lg-4 col-6">
             <h5>SyrianLancer</h5>
             <ul class="footer-items">
