@@ -265,4 +265,68 @@ h5 {
   float: none;
   margin: 0 auto;
 }
+
+.signup-main {
+  background: url("../images/computers.png") no-repeat fixed center;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-size: cover;
+}
+
+.signup-div {
+  margin: 10px;
+  padding: 30px;
+  direction: rtl;
+  text-align: right;
+  font-family: "Cairo", sans-serif;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.signup-div > h1 {
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.signup-div > p {
+  font-weight: bold;
+}
+
+.text-box-signup {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.signup-btn {
+  color: black;
+  background-color: #ffe241;
+  border-color: #ffe241;
+  font-size: 20px;
+  font-weight: bold;
+  margin: auto;
+  display: block;
+}
+
+.signup-btn:hover {
+  color: #1D1D1D;
+  border-color: #ffef95;
+  background-color: #ffef95;
+}
+
+.signup-btn:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem #ffe241;
+          box-shadow: 0 0 0 0.2rem #ffe241;
+}
+
+.signup-btn:active {
+  color: white;
+  border-color: #1D1D1D;
+  background-color: #ffe241;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
 /*# sourceMappingURL=main.css.map */

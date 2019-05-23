@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="nav-items">
             <ul class="nav navbar-right ml-auto mt-4 mb-4 mr-4">
                 <li class="nav-item"><button type="button" onClick="document.location.href='login.php'" class="btn btn-outline-primary">تسجيل الدخول</button></li>
-                <li class="nav-item"><button type="button" class="btn btn-outline-primary">تسجيل حساب</button></li>
+                <li class="nav-item"><button type="button" onClick="document.location.href='signup.php'" class="btn btn-outline-primary">تسجيل حساب</button></li>
                 <li class="nav-item"><a class="nav-link" href="#">أضف عمل</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">تصفح الأعمال</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">تصفح المستقلين</a></li>
