@@ -1,4 +1,4 @@
-<?php 
+<?php
     require 'header.php';
 ?>
 
@@ -10,6 +10,14 @@
         </div>
     
 </div>
+</div>
+<div class="categories">
+    <div class="row">
+        <div id="programmming-card" class="category-card col-md-5 mt-4 mb-4">برمجيات, تصميم مواقع و تطبيقات</div>
+        <div id="consulting-card" class="category-card col-md-5 mt-4 mb-4">خدمات استشارية و إدارية</div>
+        <div id="translation-card" class="category-card col-md-5 mt-4 mb-4">كتابة و ترجمة</div>
+        <div id="marketing-card" class="category-card col-md-5 mt-4 mb-4">تسويق و مبيعات</div>
+    </div>
 </div>
 
 <?php 

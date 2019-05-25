@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./stylesheets/bootstrap.min.css" crossorigin="anonymous">
     <script src="./js/jquery3_4.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
     <link rel="stylesheet" href="./stylesheets/main.css">
     <title>SyrianLancer</title>
 </head>
