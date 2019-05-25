@@ -1,5 +1,4 @@
-
-function openTab(pageName,elmnt) {
+function openTab(pageName, elmnt) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -11,7 +10,7 @@ function openTab(pageName,elmnt) {
   }
   document.getElementById(pageName).style.display = "block";
   elmnt.style.backgroundColor = "white";
- 
+
 }
 
 // Get the element with id="defaultOpen" and click on it
