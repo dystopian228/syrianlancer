@@ -1,11 +1,5 @@
 .navbar-brand {
-    display: inline-block;
-    padding-top: .3125rem;
-    padding-bottom: .3125rem;
-    margin-left: 1rem;
-    font-size: 1.25rem;
-    line-height: inherit;
-    white-space: nowrap
+    border-left: 2px solid $dark-black;
 }
 
 .navbar-light .navbar-nav .nav-link:focus,
@@ -28,6 +22,7 @@
     font-weight: bold;
 }
 
+
 #nav-items {
     direction: rtl;
 }
@@ -46,4 +41,16 @@ button.bg-light:hover {
 
 .nav-link {
     color: $dark-black;
+}
+
+@media(max-width: 922px) {
+    .btn-text {
+        display: none !important;
+    }
+}
+
+@media(max-width: 768px) {
+    .navbar-brand {
+        border: none;
+    }
 }
