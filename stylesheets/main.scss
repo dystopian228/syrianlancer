@@ -19,13 +19,18 @@
 'layout/footer';
 
 // 5. Components
-@import 'components/button';
+@import 'components/button',
+'components/checkbox',
+'components/textbox',
+'components/slider',
+'components/select';
 
 // 6. Page-specific styles
 @import 'pages/home',
 'pages/login',
 'pages/signup',
-'pages/profile';
+'pages/profile',
+'pages/projects';
 
 // 7. Themes
 @import 'themes/default';

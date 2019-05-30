@@ -216,6 +216,153 @@ h5 {
           box-shadow: 0 0 0 0.2rem #1D1D1D;
 }
 
+.btn-primary {
+  color: #1D1D1D;
+  background-color: #ffe241;
+  border-color: #ffe241;
+  border-radius: 0px;
+}
+
+.btn-primary:hover {
+  color: #1D1D1D;
+  background-color: #ffe241;
+  border: none;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+  color: #1D1D1D;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+}
+
+.btn-primary.disabled,
+.btn-primary:disabled {
+  color: #ffe241;
+  background-color: black;
+  border: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+  color: #1D1D1D;
+  background-color: #ffe241;
+  border: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+}
+
+.btn-primary:active {
+  color: #1D1D1D;
+  background-color: #ffe241;
+  border: none;
+}
+
+/* Ripple effect */
+.ripple {
+  color: #1D1D1D;
+  background-position: center;
+  -webkit-transition: background 0.8s;
+  transition: background 0.8s;
+  border: none;
+}
+
+.ripple:hover {
+  color: #1D1D1D;
+  background: #ffe241 radial-gradient(circle, transparent 1%, #ebc700 1%) center/15000%;
+  border: none;
+}
+
+.ripple:active {
+  color: #1D1D1D;
+  background-size: 100%;
+  -webkit-transition: background 0s;
+  transition: background 0s;
+  border: none;
+}
+
+/* Checkbox customization */
+label.custom-control-label {
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+label.custom-control-label::before,
+label.custom-control-label::after {
+  right: 0;
+  left: auto;
+}
+
+.custom-control-label:before {
+  background-color: #585858;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #ffe241;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='black' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}
+
+/* textbox customization */
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]) {
+  border: none;
+  border: 1px solid #ffe241;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 1px 0 0 #ffe241;
+          box-shadow: 0 1px 0 0 #ffe241;
+}
+
+input[type=text],
+input[type=password] {
+  border: none;
+  border-bottom: 1px solid #ffef95;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 1px 0 0 #ffef95;
+          box-shadow: 0 1px 0 0 #ffef95;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ffe241;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ffe241;
+  cursor: pointer;
+}
+
 #sl-jumbo-cont {
   min-width: 100%;
   height: 40vw;
@@ -262,7 +409,7 @@ h5 {
 }
 
 .categories {
-  background: #f0f0f0;
+  background: #f3f1e3;
   display: block;
   text-align: center;
 }
@@ -382,7 +529,8 @@ h5 {
   text-align: center;
 }
 
-.signup-div > p, .signup-div > div > div > p {
+.signup-div > p,
+.signup-div > div > div > p {
   font-weight: bold;
 }
 
@@ -429,6 +577,14 @@ h5 {
 .col-centered {
   float: none;
   margin: 0 auto;
+}
+
+.pass-vis {
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid #ffef95;
+  -webkit-box-shadow: 0 1px #ffef95;
+          box-shadow: 0 1px #ffef95;
 }
 
 .center {
@@ -522,7 +678,7 @@ h5 {
 .tabcontent {
   direction: rtl;
   color: black;
-  background-color: #f0f0f0;
+  background-color: #f3f1e3;
   display: none;
   padding: 100px 20px;
   height: 100%;
@@ -568,5 +724,28 @@ h5 {
 .lii {
   color: darkcyan;
   font-size: 30px;
+}
+
+.projects-main {
+  direction: rtl;
+  text-align: right;
+}
+
+.projects-panel {
+  background-color: #f3f1e3;
+  padding: 4vw;
+}
+
+.project-banner {
+  height: 16vw;
+  background: url("../src/images/computers.png") center;
+  color: #f3f1e3;
+}
+
+.project-card:hover {
+  -webkit-filter: brightness(90%);
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
