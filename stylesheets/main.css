@@ -382,7 +382,7 @@ h5 {
   text-align: center;
 }
 
-.signup-div > p {
+.signup-div > p, .signup-div > div > div > p {
   font-weight: bold;
 }
 
@@ -416,6 +416,14 @@ h5 {
   color: white;
   border-color: #1D1D1D;
   background-color: #ffe241;
+}
+
+.gender-select {
+  display: inline-block;
+  width: 100%;
+  padding: 4px;
+  border-radius: 3px;
+  font-size: 16px;
 }
 
 .col-centered {

@@ -23,10 +23,9 @@
 }
 
 
-.signup-div>p {
+.signup-div>p , .signup-div>div>div>p {
     font-weight: bold;
 }
-
 
 .text-box-signup {
     font-size: 18px;
@@ -58,6 +57,14 @@
     color: white;
     border-color: $dark-black;
     background-color: $primary;
+}
+
+.gender-select {
+    display: inline-block;
+    width: 100%;
+    padding: 4px;
+    border-radius: 3px;
+    font-size: 16px;
 }
 
 

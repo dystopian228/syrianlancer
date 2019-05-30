@@ -9,6 +9,11 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/main.js"></script>
     <script src="./fontawesome/js/all.js"></script>
+
+    <?php  if (basename($_SERVER['PHP_SELF']) == 'signup.php')
+        echo '<script src="./js/_signup.js"></script>';
+        ?>
+    
     <link rel="stylesheet" href="./stylesheets/main.css">
     <title>SyrianLancer</title>
 </head>
