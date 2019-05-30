@@ -12,6 +12,8 @@
 
     <?php  if (basename($_SERVER['PHP_SELF']) == 'signup.php')
         echo '<script src="./js/_signup.js"></script>';
+        echo '<script type="text/javascript" src="./js/bootstrap-datepicker.min.js"></script>';
+        echo '<link rel="stylesheet" href="./stylesheets/bootstrap-datepicker3.css"/>';
         ?>
     
     <link rel="stylesheet" href="./stylesheets/main.css">
