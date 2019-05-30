@@ -45,7 +45,7 @@ require 'header.php'
         <p>كلمة المرور</p>
         <div class="input-group" id="show_hide_password" style="direction:ltr">
             <div class="input-group-prepend">
-                <a href="" class="input-group-text"><i class="fas fa-eye" aria-hidden="false"></i></a>
+                <a href="" class="input-group-text pass-vis"><i class="fas fa-eye" aria-hidden="false"></i></a>
             </div>
             <input type="password" name="password" id="pwd" class="form-control text-box-signup" style="direction:rtl" placeholder="أدخل كلمة المرور الخاصة بك">
         </div>

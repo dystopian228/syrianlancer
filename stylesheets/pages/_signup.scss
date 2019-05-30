@@ -23,7 +23,8 @@
 }
 
 
-.signup-div>p , .signup-div>div>div>p {
+.signup-div>p,
+.signup-div>div>div>p {
     font-weight: bold;
 }
 
@@ -71,4 +72,11 @@
 .col-centered {
     float: none;
     margin: 0 auto;
+}
+
+.pass-vis {
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid $secondary-light;
+    box-shadow: 0 1px $secondary-light;
 }
