@@ -21,20 +21,20 @@ require 'header.php'
                 <p>اسم المستخدم</p>
                 <input type="text" name="username" id="username" class="form-control text-box-signup" placeholder="">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-4" >
                 <p>تاريخ الميلاد</p>
                 <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
+        <div class="row mb-2">
+            <div class="col-md-6 mb-4">
                 <p>الجنس</p>
                 <select name="gender" id="gender" class="form-control gender-select">
                     <option value="male">أنثى</option>
                     <option value="female">ذكر</option>
                 </select>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-4">
                 <p>البلد</p>
                 <select name="country" id="country" class="form-control gender-select">
                 </select>
