@@ -1,0 +1,25 @@
+.projects-main {
+    direction: rtl;
+    text-align: right;
+}
+
+.projects-panel {
+    background-color: $light-grey;
+    padding: 4vw;
+}
+
+.project-banner {
+    height: 16vw;
+    background: url('../src/images/computers.png') center;
+    color: $light-grey;
+}
+
+.project-card:hover {
+    -webkit-filter: brightness(90%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    cursor: pointer;
+}

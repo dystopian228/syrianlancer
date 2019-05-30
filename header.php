@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="nav-items">
             <ul class="nav navbar-right mt-4 mb-4 mr-2">
                 <li><a class="nav-link" href="#">أضف عمل</a></li>
-                <li><a class="nav-link" href="#">تصفح الأعمال</a></li>
+                <li><a class="nav-link" href="projects.php">تصفح الأعمال</a></li>
                 <li><a class="nav-link" href="#">تصفح المستقلين</a></li>
             </ul>
         </div>
