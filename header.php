@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
-    <script src="./js/jquery3_4.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/main.js"></script>
-    <script src="./fontawesome/js/all.js"></script>
+    <link rel="stylesheet" href="./assets/stylesheets/bootstrap.min.css">
+    <script src="./assets/js/jquery3_4.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/fontawesome/js/all.js"></script>
 
     <?php  if (basename($_SERVER['PHP_SELF']) == 'signup.php')
-        echo '<script src="./js/_signup.js"></script>';
-        echo '<script type="text/javascript" src="./js/bootstrap-datepicker.min.js"></script>';
-        echo '<link rel="stylesheet" href="./stylesheets/bootstrap-datepicker3.css"/>';
+        echo '<script src="./assets/js/_signup.js"></script>';
+        echo '<script type="text/javascript" src="./assets/js/bootstrap-datepicker.min.js"></script>';
+        echo '<link rel="stylesheet" href="./assets/stylesheets/bootstrap-datepicker3.css"/>';
         ?>
     
-    <link rel="stylesheet" href="./stylesheets/main.css">
+    <link rel="stylesheet" href="./assets/stylesheets/main.css">
     <title>SyrianLancer</title>
 </head>
 <body>

@@ -2,13 +2,13 @@
     require 'header.php';
 ?>
         <div class="center">
-                <img src="./src/clipart/no-title.jpg"  class="cent" >
+                <img src="./assets/clipart/no-title.jpg"  class="cent" >
                 <br>
                 <div class="container profile-head">
                 <h1>Jane Doe</h1>
                 
-                <p  class="title"><img class="job" src="./src/clipart/briefcase (1).png"> CEO & Founder</p>
-                <p class="area"><img class="job" src="./src/clipart/pin (1).png">Damascuse</p>
+                <p  class="title"><img class="job" src="./assets/clipart/briefcase (1).png"> CEO & Founder</p>
+                <p class="area"><img class="job" src="./assets/clipart/pin (1).png">Damascuse</p>
             </div>
         </div>
          <br>
@@ -26,7 +26,7 @@
             
             <form class="profile-forms">
                 <div class="pr">
-                <h3 class="profile-section"> <img class="job1" src="./src/clipart/1006517.png">تعريف بي:</h3>
+                <h3 class="profile-section"> <img class="job1" src="./assets/clipart/1006517.png">تعريف بي:</h3>
         <hr>
                   <p class="hello"><h4>السلام عليكم.
         
@@ -43,7 +43,7 @@
                         ارجو التواصل لمن يريد وقم بسوالي عن اي نصيحة مجانية.</p>
                         <br>
                   </h4>
-                        <h3 class="profile-section"><img class="job1" src="./src/clipart/skills (1).png">مهاراتي:</h3>
+                        <h3 class="profile-section"><img class="job1" src="./assets/clipart/skills (1).png">مهاراتي:</h3>
                         <hr>
                         <p>
                             <ul class="my-skills">
@@ -78,37 +78,37 @@
                   <form class="profile-forms">
                       <div class="pr">
 
-                        <h3 class="profile-section"><img class="job1" src="./src/clipart/decision.png">المشاريع التي شارك بها:</h3>
+                        <h3 class="profile-section"><img class="job1" src="./assets/clipart/decision.png">المشاريع التي شارك بها:</h3>
                         <hr>
                         <p class="lii">
-                                <img class="job2" src="./src/clipart/291201.png">
+                                <img class="job2" src="./assets/clipart/291201.png">
                                 لوغو لقناة يوتيوب 
                             </p>
                             <p>
-                                    <img class="job2" src="./src/clipart/189061.png"> سامر العلي
-                                    <img class="job3" src="./src/clipart/circular-clock.png"> تم عرضه منذ سنتين
-                                    <img class="job3" src="./src/clipart/counterclockwise-rotating-arrow-around-a-clock.png"> 10 أيام
+                                    <img class="job2" src="./assets/clipart/189061.png"> سامر العلي
+                                    <img class="job3" src="./assets/clipart/circular-clock.png"> تم عرضه منذ سنتين
+                                    <img class="job3" src="./assets/clipart/counterclockwise-rotating-arrow-around-a-clock.png"> 10 أيام
                             </p>
                             <hr>
 
                             <p class="lii">
-                                    <img class="job2" src="./src/clipart/189678.png">
+                                    <img class="job2" src="./assets/clipart/189678.png">
                                     عمل فيديو إعلاني
                                 </p>
                                 <p>
-                                        <img class="job2" src="./src/clipart/189061.png"> مجد سلامة
-                                        <img class="job3" src="./src/clipart/circular-clock.png"> تم عرضه منذ سنة
+                                        <img class="job2" src="./assets/clipart/189061.png"> مجد سلامة
+                                        <img class="job3" src="./assets/clipart/circular-clock.png"> تم عرضه منذ سنة
                                         
                                 </p>
                                 <hr>
                                 <p class="lii">
-                                        <img class="job2" src="./src/clipart/595067.png">
+                                        <img class="job2" src="./assets/clipart/595067.png">
                                         إدارة حساب إنستغرام 
                                     </p>
                                     <p>
-                                            <img class="job2" src="./src/clipart/189061.png"> علاء بدر
-                                            <img class="job3" src="./src/clipart/circular-clock.png"> تم عرضه منذ سنتين
-                                            <img class="job3" src="./src/clipart/counterclockwise-rotating-arrow-around-a-clock.png"> قيد التنفيذ
+                                            <img class="job2" src="./assets/clipart/189061.png"> علاء بدر
+                                            <img class="job3" src="./assets/clipart/circular-clock.png"> تم عرضه منذ سنتين
+                                            <img class="job3" src="./assets/clipart/counterclockwise-rotating-arrow-around-a-clock.png"> قيد التنفيذ
                                     </p>
                                     <hr>
                       </div>
@@ -120,7 +120,7 @@
               
             <form class="profile-forms">
                     <div class="pr">
-                            <h3 class="profile-section"><img class="job1" src="./src/clipart/Business_Ideas-128.png">المشاريع التي طرحها:</h3>
+                            <h3 class="profile-section"><img class="job1" src="./assets/clipart/Business_Ideas-128.png">المشاريع التي طرحها:</h3>
                             <hr>
 
                     </div>

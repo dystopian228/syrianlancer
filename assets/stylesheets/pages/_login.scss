@@ -1,11 +1,12 @@
-.signup-main {
-    background: url('../src/images/computers.png') no-repeat fixed center;
+.login-main {
+    background: url('../images/computers.png') no-repeat fixed center;
     padding-top: 120px;
     padding-bottom: 120px;
     background-size: cover;
 }
 
-.signup-div {
+
+.login-div {
     margin: 10px;
     padding: 30px;
     direction: rtl;
@@ -15,26 +16,23 @@
     background-color: rgba($color: #FFFFFF, $alpha: 0.85);
 }
 
-
-.signup-div>h1 {
+.login-div>h1 {
     font-weight: bold;
     padding: 10px;
     text-align: center;
 }
 
 
-.signup-div>p,
-.signup-div>div>div>p {
+.login-div>p {
     font-weight: bold;
+    padding: 10px;
 }
 
-.text-box-signup {
+.text-box-login {
     font-size: 18px;
-    margin-bottom: 30px;
 }
 
-
-.signup-btn {
+.login-btn {
     color: black;
     background-color: $primary;
     border-color: $primary;
@@ -44,39 +42,23 @@
     display: block;
 }
 
-.signup-btn:hover {
+.login-btn:hover {
     color: $dark-black;
     border-color: $secondary-light;
     background-color: $secondary-light;
 }
 
-.signup-btn:focus {
+.login-btn:focus {
     box-shadow: 0 0 0 0.2rem $primary;
 }
 
-.signup-btn:active {
+.login-btn:active {
     color: white;
     border-color: $dark-black;
     background-color: $primary;
 }
 
-.gender-select {
-    display: inline-block;
-    width: 100%;
-    padding: 4px;
-    border-radius: 3px;
-    font-size: 16px;
-}
-
-
 .col-centered {
     float: none;
     margin: 0 auto;
-}
-
-.pass-vis {
-    background-color: white;
-    border: none;
-    border-bottom: 1px solid $secondary-light;
-    box-shadow: 0 1px $secondary-light;
 }
