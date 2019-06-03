@@ -1,7 +1,16 @@
-<?php
+<?php 
 
-    include './dbh.php';
-    
+include 'dbh.php';
+
+$fid=$_GET['fid'];
+
+if($fid==1){
+    loadCountries();
+}
+
+function loadCountries(){
+    global $conn;
+
     if(!$conn)
     {
         die("Connection Failed: " . mysqli_connect_error());
@@ -29,4 +38,4 @@
 
     mysqli_close($conn);
 
-?>
+}

@@ -3,9 +3,9 @@ $(document).ready(function () {
     //Populate countries list with items 
     $.ajax({
         type: 'GET',
-        url: 'includes/_signup_load.php',
+        url: 'includes/LoadingController.php',
         datatype: 'text',
-        data: "",
+        data: "fid=1",
         success: function (response) {
             var JsonArray = $.parseJSON(response);
             for (var i = 0; i < JsonArray.length; i++) {
@@ -128,9 +128,9 @@ function submitForm() {
     if (_userName && _email && _birthDate && _firstName && _lastName && _password) {
         $.ajax({
             type: 'POST',
-            url: 'includes/_signup_submit.php',
+            url: 'includes/AuthenticationController.php',
             datatype: 'text',
-            data: "userName=" + userName + "&email=" + email + "&firstName=" + firstName + "&lastName=" + lastName + "&password=" + password + "&birthDate=" + birthDate + "&countryID=" + country + "&gender=" + gender,
+            data: "fid=1&userName=" + userName + "&email=" + email + "&firstName=" + firstName + "&lastName=" + lastName + "&password=" + password + "&birthDate=" + birthDate + "&countryID=" + country + "&gender=" + gender,
             success: function (response) {
                 //$("#error-div").append(response);
 
