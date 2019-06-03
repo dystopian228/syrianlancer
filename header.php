@@ -14,6 +14,8 @@
         echo '<script src="./assets/js/_signup.js"></script>';
         echo '<script type="text/javascript" src="./assets/js/bootstrap-datepicker.min.js"></script>';
         echo '<link rel="stylesheet" href="./assets/stylesheets/bootstrap-datepicker3.css"/>';
+        if (basename($_SERVER['PHP_SELF']) == 'projects.php')
+        echo '<script src="./assets/js/_projects.js"></script>';
         ?>
     
     <link rel="stylesheet" href="./assets/stylesheets/main.css">

@@ -1,0 +1,106 @@
+function search() {
+    let cat1 = $('#cat1');
+    let cat2 = $('#cat2');
+    let cat3 = $('#cat3');
+    let cat4 = $('#cat4');
+    let cat5 = $('#cat5');
+    let cat6 = $('#cat6');
+    let cat7 = $('#cat7');
+
+    var cats = new Array(cat1, cat2, cat3, cat4, cat5, cat6, cat7);
+    var categories = "";
+
+    var count = 0;
+    for (i = 0; i < cats.length; i++) {
+        if (cats[i].is(":checked")) {
+            if (count == 0) {
+                categories = cats[i].val();
+                count++;
+            } else {
+                categories += "," + cats[i].val();
+                count++;
+            }
+
+        }
+    }
+
+    let duration1 = $('#duration1');
+    let duration2 = $('#duration2');
+    let duration3 = $('#duration3');
+    let duration4 = $('#duration4');
+
+    var durs = new Array(duration1, duration2, duration3, duration4);
+    var durations = "";
+
+    var count = 0;
+    for (i = 0; i < durs.length; i++) {
+        if (durs[i].is(":checked")) {
+            if (count == 0){
+                durations = durs[i].val();
+                count++;
+            }
+            else{
+                durations += "," + durs[i].val();
+                count++;
+            }
+        }
+    }
+
+    var keyword = $('#keyword-search').val();
+    var balance = $('#balance-slider').val();
+
+    alert("keyword=" + keyword + "&categories=" + categories + "&duration=" + durations + "&balance=" + balance);
+
+    $.ajax({
+        type: 'GET',
+        url: 'src/Controllers/ProjectController.php',
+        datatype: 'text',
+        data: "keyword=" + keyword + "&categories" + categories + "&duration=" + durations + "&balance=" + balance,
+        success: function (response) {
+            var JsonArray = $.parseJSON(response);
+            alert(response);
+            var deck = document.getElementById("project-deck");
+            var ct = 0;
+            var count = 1;
+            var cnt = 1;
+            deck.innerHTML = "";
+            for (var i = 0; i < JsonArray.length; i++) {
+                if (ct == 0) {
+                    if (i == (JsonArray.length - 1))
+                    {
+                        deck.innerHTML+= "<div class=\"card-deck mt-5\" id=\"project-deck-" + cnt + "\"><div class=\"card project-card\"><div class=\"card-img-top project-banner d-flex flex-wrap align-content-center justify-content-center\">" + JsonArray[i].project_name + "</div><div class=\"card-body project-info\"><div class=\"d-flex justify-content-between mb-3\"><a href=\"#!\" class=\"float-right\">" + JsonArray[i].userName + "</a><a href=\"#!\" class=\"float-left\">" + JsonArray[i].project_name + "</a></div><div class=\"d-flex justify-content-between mb-3\"><a href=\"#!\" class=\"float-right\">" + JsonArray[i].userName + "</a><button type=\"button\" class=\"btn btn-primary ripple float-left\" data-toggle=\"collapse\" data-target=\"#project-descript-" + count + "\" aria-expanded=\"false\" aria-controls=\"project-descript-" + count + "\"><i class=\"fas fa-caret-down ml-2\"></i>المزيد</button></div><div class=\"collapse\" id=\"project-descript-" + count + "\"><p class=\"card-text text-center\">" + JsonArray[i].description + "</p></div></div></div><div class=\"card project-card invisible\"></div></div>";
+                    }
+                    else
+                        deck.innerHTML += "<div class=\"card-deck mt-5\" id=\"project-deck-" + cnt + "\"><div class=\"card project-card\"><div class=\"card-img-top project-banner d-flex flex-wrap align-content-center justify-content-center\">" + JsonArray[i].project_name + "</div><div class=\"card-body project-info\"><div class=\"d-flex justify-content-between mb-3\"><a href=\"#!\" class=\"float-right\">" + JsonArray[i].userName + "</a><a href=\"#!\" class=\"float-left\">" + JsonArray[i].project_name + "</a></div><div class=\"d-flex justify-content-between mb-3\"><a href=\"#!\" class=\"float-right\">" + JsonArray[i].userName + "</a><button type=\"button\" class=\"btn btn-primary ripple float-left\" data-toggle=\"collapse\" data-target=\"#project-descript-" + count + "\" aria-expanded=\"false\" aria-controls=\"project-descript-" + count + "\"><i class=\"fas fa-caret-down ml-2\"></i>المزيد</button></div><div class=\"collapse\" id=\"project-descript-" + count + "\"><p class=\"card-text text-center\">" + JsonArray[i].description + "</p></div></div></div>";
+                    alert(ct)
+                    ct = ct + 1;
+                    cnt++;
+                } else if (ct == 1) {
+                    document.getElementById("project-deck-" + (cnt - 1)).innerHTML += "<div class=\"card project-card\"><div class=\"card-img-top project-banner d-flex flex-wrap align-content-center justify-content-center\">" + JsonArray[i].project_name + "</div><div class=\"card-body project-info\"><div class=\"d-flex justify-content-between mb-3\"><a href=\"#!\" class=\"float-right\">" + JsonArray[i].userName + "</a><a href=\"#!\" class=\"float-left\">" + JsonArray[i].project_name + "</a></div><div class=\"d-flex justify-content-between mb-3\"><a href=\"#!\" class=\"float-right\">" + JsonArray[i].userName + "</a><button type=\"button\" class=\"btn btn-primary ripple float-left\" data-toggle=\"collapse\" data-target=\"#project-descript-" + count + "\" aria-expanded=\"false\" aria-controls=\"project-descript-" + count + "\"><i class=\"fas fa-caret-down ml-2\"></i>المزيد</button></div><div class=\"collapse\" id=\"project-descript-" + count + "\"><p class=\"card-text text-center\">" + JsonArray[i].description + "</p></div></div></div></div>";
+                    alert(ct)
+                    ct = 0;
+                }
+                count++;
+            }
+        },
+        error: function (jqXHR, exception) {
+            var msg = '';
+            if (jqXHR.status === 0) {
+                msg = 'Not connect.\n Verify Network.';
+            } else if (jqXHR.status == 404) {
+                msg = 'Requested page not found. [404]';
+            } else if (jqXHR.status == 500) {
+                msg = 'Internal Server Error [500].';
+            } else if (exception === 'parsererror') {
+                msg = 'Requested JSON parse failed.';
+            } else if (exception === 'timeout') {
+                msg = 'Time out error.';
+            } else if (exception === 'abort') {
+                msg = 'Ajax request aborted.';
+            } else {
+                msg = 'Uncaught Error.\n' + jqXHR.responseText;
+            }
+            alert(msg);
+        }
+    });
+}
