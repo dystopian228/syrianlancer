@@ -3,7 +3,7 @@ $(document).ready(function () {
     //Populate countries list with items 
     $.ajax({
         type: 'GET',
-        url: 'includes/LoadingController.php',
+        url: 'src/Controllers/LoadingController.php',
         datatype: 'text',
         data: "fid=1",
         success: function (response) {
@@ -125,10 +125,12 @@ function submitForm() {
 
     }
 
+
+
     if (_userName && _email && _birthDate && _firstName && _lastName && _password) {
         $.ajax({
             type: 'POST',
-            url: 'includes/AuthenticationController.php',
+            url: 'src/Controllers/AuthenticationController.php',
             datatype: 'text',
             data: "fid=1&userName=" + userName + "&email=" + email + "&firstName=" + firstName + "&lastName=" + lastName + "&password=" + password + "&birthDate=" + birthDate + "&countryID=" + country + "&gender=" + gender,
             success: function (response) {

@@ -1,6 +1,6 @@
 <?php
 
-    include '../../includes/dbh.php';
+    include 'dbh.php';
 
     $keyterm="";
     $categories="";
