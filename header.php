@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +14,13 @@
     <script src="./assets/fontawesome/js/all.js"></script>
 
     <?php  if (basename($_SERVER['PHP_SELF']) == 'signup.php')
-        echo '<script src="./assets/js/_signup.js"></script>';
-        echo '<script type="text/javascript" src="./assets/js/bootstrap-datepicker.min.js"></script>';
-        echo '<link rel="stylesheet" href="./assets/stylesheets/bootstrap-datepicker3.css"/>';
-        if (basename($_SERVER['PHP_SELF']) == 'projects.php')
-        echo '<script src="./assets/js/_projects.js"></script>';
+                echo '<script src="./assets/js/_signup.js"></script>';
+                echo '<script type="text/javascript" src="./assets/js/bootstrap-datepicker.min.js"></script>';
+                echo '<link rel="stylesheet" href="./assets/stylesheets/bootstrap-datepicker3.css"/>';
+           if (basename($_SERVER['PHP_SELF']) == 'projects.php')
+                echo '<script src="./assets/js/_projects.js"></script>';
+           if (basename($_SERVER['PHP_SELF']) == 'login.php')
+                echo '<script src="./assets/js/_login.js"></script>';
         ?>
     
     <link rel="stylesheet" href="./assets/stylesheets/main.css">
@@ -27,16 +32,26 @@
         <a class="navbar-brand pl-5" href="index.php">SyrianLancer</a>
     </div>
     <div class="order-first">
-        <button type="button" onClick="document.location.href='login.php'"
-         class="btn btn-outline-primary">
-            <span class="btn-text"> تسجيل الدخول</span>
-            <i class="fas fa-sign-in-alt ml-md-1"></i>
-        </button>
-        <button type="button" onClick="document.location.href='signup.php'"
-         class="btn btn-outline-primary">
-            <span class="btn-text">تسجيل حساب</span>
-            <i class="fas fa-user-plus ml-md-1"></i>
-        </button>
+    <?php if(!isset($_SESSION['userID'])){
+        echo '<button type="button" onClick="document.location.href=\'login.php\'"
+        class="btn btn-outline-primary">
+           <span class="btn-text"> تسجيل الدخول</span>
+           <i class="fas fa-sign-in-alt ml-md-1"></i>
+       </button>
+       <button type="button" onClick="document.location.href=\'signup.php\'"
+        class="btn btn-outline-primary">
+           <span class="btn-text">تسجيل حساب</span>
+           <i class="fas fa-user-plus ml-md-1"></i>
+       </button>';
+        }
+        else{
+            echo '<button type="button" onClick="logout()"
+            class="btn btn-outline-primary">
+               <span class="btn-text">تسجيل الخروج</span>
+               <i class="fas fa-sign-out-alt"></i>
+           </button>';
+        }
+        ?>
     </div>
         <button class="navbar-toggler navbar-toggler-right order-sm-last"
         type="button" data-toggle="collapse"
@@ -49,6 +64,10 @@
                 <li><a class="nav-link" href="#">أضف عمل</a></li>
                 <li><a class="nav-link" href="projects.php">تصفح الأعمال</a></li>
                 <li><a class="nav-link" href="#">تصفح المستقلين</a></li>
+                <?php
+                if(isset($_SESSION['userID']))
+                echo '<li><a class="nav-link" href="profile.php">صفحتي الشخصية</a></li>'
+                ?>  
             </ul>
         </div>
     </nav>

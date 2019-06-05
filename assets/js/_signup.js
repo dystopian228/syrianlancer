@@ -62,9 +62,6 @@ $(document).ready(function () {
 
 });
 
-function validateForm() {
-
-}
 
 function submitForm() {
 
@@ -132,7 +129,7 @@ function submitForm() {
             type: 'POST',
             url: 'src/Controllers/AuthenticationController.php',
             datatype: 'text',
-            data: "fid=1&userName=" + userName + "&email=" + email + "&firstName=" + firstName + "&lastName=" + lastName + "&password=" + password + "&birthDate=" + birthDate + "&countryID=" + country + "&gender=" + gender,
+            data: "fid=1&userName=" + userName.trim() + "&email=" + email + "&firstName=" + firstName.trim() + "&lastName=" + lastName.trim() + "&password=" + password + "&birthDate=" + birthDate + "&countryID=" + country + "&gender=" + gender,
             success: function (response) {
                 //$("#error-div").append(response);
 
