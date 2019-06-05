@@ -55,6 +55,7 @@ function search(page) {
         datatype: 'text',
         data: "keyword=" + keyword + "&categories=" + categories + "&duration=" + durations + "&balance=" + balance + "&page=" + parseInt(page),
         success: function (response) {
+            alert(response);
             var JsonArray = $.parseJSON(response);
             var pages = JsonArray[JsonArray.length - 3];
             var startPage = JsonArray[JsonArray.length - 2];
