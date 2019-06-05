@@ -35,3 +35,17 @@
     background-color: #fff !important;
     border-color: #dee2e6 !important;
 }
+
+.page-item:first-child .page-link {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+}
+
+.page-item:last-child .page-link {
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
