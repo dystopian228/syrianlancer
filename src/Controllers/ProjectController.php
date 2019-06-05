@@ -52,9 +52,9 @@
         if ($balance!="" ){
             $sqlc=$sqlc . "  and projects.low_balance >= ?";
         }
-
+        $catarr=implode("','", $cats);
         if ($categories!=""){
-            $sqlc=$sqlc . " and projects.category IN ('$categories')"; 
+            $sqlc=$sqlc . " and projects.category IN ('$catarr')"; 
         }
         $duration_low="";
         $duration_high="";
@@ -141,8 +141,9 @@
             if ($balance!=""){
                 $sql=$sql . "  and projects.low_balance >= ?";
             }
+            $catarr=implode("','", $cats);
             if ($categories!=""){
-                $sql=$sql . " and projects.category IN ('$categories')"; 
+                $sql=$sql . " and projects.category IN ('$catarr')"; 
             }
             if($duration!=""){
                 $durs=array();
