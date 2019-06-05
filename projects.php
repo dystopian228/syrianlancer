@@ -59,7 +59,7 @@
                 <div class="row mb-3">
                     <div class="col-md-4 form-inline active-primary active-primary-2 mt-2 mb-3">
                             <i class="fas fa-search ml-1" aria-hidden="true"></i>
-                            <input class="form-control form-control-sm ml-3 w-75" type="text" id="keyword-search" placeholder="كلمات مفتاحية" onChange=search() aria-label="Search">
+                            <input class="form-control form-control-sm ml-3 w-75" type="text" id="keyword-search" placeholder="كلمات مفتاحية" onChange=search(1) aria-label="Search">
                     </div>
                     <div class="col-md-4 mb-3"></div>
                     <div class="col-md-4 mb-3"></div>
@@ -84,14 +84,18 @@
                             <input type="checkbox" class="custom-control-input" value="91-180" onChange=search(1) id="duration4">
                             <label class="custom-control-label" name="90-180" for="duration4">من 3 أشهر إلى 6 أشهر</label>
                         </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" value="181-365" onChange=search(1) id="duration5">
+                            <label class="custom-control-label" name="181-365" for="duration5">من 6 أشهر إلى سنة</label>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <h5>مزانية العمل</h5>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <h5 >مزانية العمل</h5>
                             <div>
                             <div class="d-flex">
-                                <b class="pull-right" data-source="balance">25.00</b>
+                            <output class="pull-right" for="balance-slider" id="balance-value">0</output>
                              </div>
-                                <input type="range" class="slider" name="balance" id="balance-slider" onChange=search(1) min="0" max="1000000" value="0" data-ui="balance">
+                                <input type="range" class="slider w-75" name="balance" id="balance-slider" onChange=search(1) oninput="outputUpdate(value)" min="0" max="5000" value="0" step="5" data-ui="balance">
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
@@ -108,7 +112,7 @@
         <div class="projects-deck mb-5" id="project-deck">
         </div>
         <nav aria-label="Page navigation example">
-            <ul class="pagination" id="project-pages">
+            <ul class="pagination d-flex justify-content-center" id="project-pages">
             </ul>
         </nav>
     </div>
