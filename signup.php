@@ -1,5 +1,8 @@
 <?php
-require 'header.php'
+require 'header.php';
+if(isset($_SESSION['userID'])){ 
+    header("Location: profile.php");
+}
 ?>
 
 <main class="signup-main">

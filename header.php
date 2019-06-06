@@ -13,14 +13,16 @@
     <script src="./assets/js/main.js"></script>
     <script src="./assets/fontawesome/js/all.js"></script>
 
-    <?php  if (basename($_SERVER['PHP_SELF']) == 'signup.php')
+    <?php   if (basename($_SERVER['PHP_SELF']) == 'signup.php')
                 echo '<script src="./assets/js/_signup.js"></script>';
                 echo '<script type="text/javascript" src="./assets/js/bootstrap-datepicker.min.js"></script>';
                 echo '<link rel="stylesheet" href="./assets/stylesheets/bootstrap-datepicker3.css"/>';
-           if (basename($_SERVER['PHP_SELF']) == 'projects.php')
+            if (basename($_SERVER['PHP_SELF']) == 'projects.php')
                 echo '<script src="./assets/js/_projects.js"></script>';
-           if (basename($_SERVER['PHP_SELF']) == 'login.php')
+            if (basename($_SERVER['PHP_SELF']) == 'login.php')
                 echo '<script src="./assets/js/_login.js"></script>';
+            if(basename($_SERVER['PHP_SELF']) == 'edit_profile.php')
+                echo '<script src="./assets/js/_edit_profile.js"></script>';
         ?>
     
     <link rel="stylesheet" href="./assets/stylesheets/main.css">
