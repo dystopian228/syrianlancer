@@ -1,9 +1,9 @@
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
-/**
- * 1. Change the default font family in all browsers (opinionated).
- * 2. Correct the line height in all browsers.
- * 3. Prevent adjustments of font size after orientation changes in
- *    IE on Windows Phone and in iOS.
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
  */
 html {
   height: 100%;
@@ -28,6 +28,11 @@ a:active {
 .vr {
   border-right: 2px solid #1D1D1D;
   height: 100%;
+}
+
+.profile-img {
+  width: 192px;
+  height: 192px;
 }
 
 @font-face {
@@ -88,8 +93,8 @@ a:active {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/**
- * Basic typography style for copy text
+/**
+ * Basic typography style for copy text
  */
 .navbar-brand {
   border-left: 2px solid #1D1D1D;
@@ -363,6 +368,47 @@ input[type=password] {
   cursor: pointer;
 }
 
+select.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  padding-bottom: 0rem;
+  padding-top: 0rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  border-bottom: 1px solid #ffef95;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 1px 0 0 #ffe241;
+          box-shadow: 0 1px 0 0 #ffe241;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+select.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #ffef95;
+  outline: 0;
+  -webkit-box-shadow: 0 1px 0 0 #ffef95;
+          box-shadow: 0 1px 0 0 #ffef95;
+}
+
+option::-moz-selection {
+  background-color: #ffe241;
+  color: #1D1D1D;
+}
+
+option::selection {
+  background-color: #ffe241;
+  color: #1D1D1D;
+}
+
 .page-link {
   position: relative;
   display: block;
@@ -415,6 +461,10 @@ input[type=password] {
   border-bottom-right-radius: 0rem;
   border-top-left-radius: .25rem;
   border-bottom-left-radius: .25rem;
+}
+
+.error {
+  color: #990f0f;
 }
 
 #sl-jumbo-cont {
@@ -739,9 +789,9 @@ input[type=password] {
 }
 
 .tabcontent {
-  /* padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
+  /* padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
     float: right;*/
 }
 
@@ -803,8 +853,19 @@ input[type=password] {
   cursor: pointer;
 }
 
-.freelancers-main {
+.edit-profile-main {
   direction: rtl;
   text-align: right;
+}
+
+#profile-avatar:hover {
+  -webkit-filter: brightness(75%);
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  cursor: pointer;
+}
+
+.image-upload > input {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */

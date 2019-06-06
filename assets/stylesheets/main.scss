@@ -24,7 +24,8 @@
 'components/textbox',
 'components/slider',
 'components/select',
-'components/pagination';
+'components/pagination',
+'components/error-div';
 
 // 6. Page-specific styles
 @import 'pages/home',
@@ -33,6 +34,7 @@
 'pages/profile',
 'pages/projects',
 'pages/freelancers';
+'pages/edit_profile';
 
 // 7. Themes
 @import 'themes/default';

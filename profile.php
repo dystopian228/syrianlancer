@@ -1,11 +1,12 @@
 <?php
 require 'header.php';
+if(!isset($_SESSION['userID'])){ 
+    header("Location: index.php");
+}
 ?>
 
-<?php
- if(isset($_SESSION['userID']))
- echo '<div class="center">
-    <img src="./assets/clipart/no-title.jpg" class="cent">
+<div class="center">
+    <img src="./assets/clipart/anonymous.png" class="profile-img cent">
     <br>
     <div class="container profile-head">
         <h1>Jane Doe</h1>
@@ -18,9 +19,9 @@ require 'header.php';
 <div class="tab">
 
 
-    <button class="tablinks" onclick="openTab(\'Profaile\',this)" id="defaultOpen"><b>الملف الشخصي </b></button>
-    <button class="tablinks" onclick="openTab( \'projectA\', this)"><b>المشاريع التي شارك بها </b></button>
-    <button class="tablinks" onclick="openTab(\'projectB\', this)"><b> المشاريع التي طرحها </b></button>
+    <button class="tablinks" onclick="openTab('Profaile',this)" id="defaultOpen"><b>الملف الشخصي </b></button>
+    <button class="tablinks" onclick="openTab( 'projectA', this)"><b>المشاريع التي شارك بها </b></button>
+    <button class="tablinks" onclick="openTab('projectB', this)"><b> المشاريع التي طرحها </b></button>
 
 </div>
 
@@ -152,11 +153,7 @@ require 'header.php';
 
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
-</script>';
-else 
-header('location:login.php');
-?>
-
+</script>;
 
 <?php
 require 'footer.php';

@@ -4,7 +4,7 @@
 
 <main class="projects-main">
     <div class="container">
-        <h2 class="display-4 mb-5 mt-5">الأعمال المفتوحة</h2>
+        <h3 class="display-4 mb-5 mt-5">الأعمال المفتوحة</h3>
         <div class="projects-panel">
                 <div class="row mb-3">
                     <div class="col-md-4">

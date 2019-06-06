@@ -1,4 +1,5 @@
 function search(page) {
+    //Fetch categories
     let cat1 = $('#cat1');
     let cat2 = $('#cat2');
     let cat3 = $('#cat3');
@@ -10,6 +11,7 @@ function search(page) {
     var cats = new Array(cat1, cat2, cat3, cat4, cat5, cat6, cat7);
     var categories = "";
 
+    //Check which categories are ticked.
     var count = 0;
     for (i = 0; i < cats.length; i++) {
         if (cats[i].is(":checked")) {
@@ -24,6 +26,7 @@ function search(page) {
         }
     }
 
+    //Fetch durations
     let duration1 = $('#duration1');
     let duration2 = $('#duration2');
     let duration3 = $('#duration3');
@@ -33,6 +36,7 @@ function search(page) {
     var durs = new Array(duration1, duration2, duration3, duration4, duration5);
     var durations = "";
 
+    //Check which durations are ticked.
     var count = 0;
     for (i = 0; i < durs.length; i++) {
         if (durs[i].is(":checked")) {
@@ -46,9 +50,11 @@ function search(page) {
         }
     }
 
+    //Get keyword and balance.
     var keyword = $('#keyword-search').val();
     var balance = $('#balance-slider').val();
 
+    //Send Ajax request.
     $.ajax({
         type: 'GET',
         url: 'src/Controllers/ProjectController.php',
@@ -92,6 +98,9 @@ function search(page) {
                 }
                 count++;
             }
+
+            //Pagination: Display the page we're standing at plus two pages after (if plausable), and two pages befor (if plausable).
+            //And add Last and First page buttons.
             var pagination = document.getElementById("project-pages");
             pagination.innerHTML = "";
             if (page == 1)
@@ -141,10 +150,14 @@ function search(page) {
     });
 }
 
+
+//Function to continue updating slider label as it changes.
 function outputUpdate(vol) {
     document.querySelector('#balance-value').value = vol;
 }
 
+
+//Fetch all available projects as page loads.
 $(document).ready(function () {
     search(1);
 });
