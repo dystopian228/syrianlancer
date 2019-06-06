@@ -21,6 +21,8 @@
                 echo '<script src="./assets/js/_projects.js"></script>';
            if (basename($_SERVER['PHP_SELF']) == 'login.php')
                 echo '<script src="./assets/js/_login.js"></script>';
+            if(basename($_SERVER['PHP_SELF']) == 'freelancers.php')
+                echo '<script src="./assets/js/_freelancers.js"></script>';
         ?>
     
     <link rel="stylesheet" href="./assets/stylesheets/main.css">
@@ -63,7 +65,7 @@
             <ul class="nav navbar-right mt-4 mb-4 mr-2">
                 <li><a class="nav-link" href="#">أضف عمل</a></li>
                 <li><a class="nav-link" href="projects.php">تصفح الأعمال</a></li>
-                <li><a class="nav-link" href="#">تصفح المستقلين</a></li>
+                <li><a class="nav-link" href="freelancers.php">تصفح المستقلين</a></li>
                 <?php
                 if(isset($_SESSION['userID']))
                 echo '<li><a class="nav-link" href="profile.php">صفحتي الشخصية</a></li>'

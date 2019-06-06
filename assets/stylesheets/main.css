@@ -802,4 +802,9 @@ input[type=password] {
   transition: all 1s ease;
   cursor: pointer;
 }
+
+.freelancers-main {
+  direction: rtl;
+  text-align: right;
+}
 /*# sourceMappingURL=main.css.map */

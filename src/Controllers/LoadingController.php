@@ -16,8 +16,6 @@ function loadCountries(){
         die("Connection Failed: " . mysqli_connect_error());
     }
     else{
-        $sSQL= 'SET CHARACTER SET utf8'; 
-        mysqli_query($conn,$sSQL);
 
         $sql = 'select name from countries';
         $result = mysqli_query($conn,$sql);
