@@ -30,6 +30,11 @@ a:active {
   height: 100%;
 }
 
+.profile-img {
+  width: 192px;
+  height: 192px;
+}
+
 @font-face {
   font-family: 'Cairo';
   font-style: normal;
@@ -363,6 +368,47 @@ input[type=password] {
   cursor: pointer;
 }
 
+select.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  padding-bottom: 0rem;
+  padding-top: 0rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  border-bottom: 1px solid #ffef95;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 1px 0 0 #ffe241;
+          box-shadow: 0 1px 0 0 #ffe241;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+select.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #ffef95;
+  outline: 0;
+  -webkit-box-shadow: 0 1px 0 0 #ffef95;
+          box-shadow: 0 1px 0 0 #ffef95;
+}
+
+option::-moz-selection {
+  background-color: #ffe241;
+  color: #1D1D1D;
+}
+
+option::selection {
+  background-color: #ffe241;
+  color: #1D1D1D;
+}
+
 .page-link {
   position: relative;
   display: block;
@@ -415,6 +461,10 @@ input[type=password] {
   border-bottom-right-radius: 0rem;
   border-top-left-radius: .25rem;
   border-bottom-left-radius: .25rem;
+}
+
+.error {
+  color: #990f0f;
 }
 
 #sl-jumbo-cont {
@@ -801,5 +851,21 @@ input[type=password] {
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
   cursor: pointer;
+}
+
+.edit-profile-main {
+  direction: rtl;
+  text-align: right;
+}
+
+#profile-avatar:hover {
+  -webkit-filter: brightness(75%);
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  cursor: pointer;
+}
+
+.image-upload > input {
+  display: none;
 }
 /*# sourceMappingURL=main.css.map */
