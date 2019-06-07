@@ -1,9 +1,9 @@
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
-/**
- * 1. Change the default font family in all browsers (opinionated).
- * 2. Correct the line height in all browsers.
- * 3. Prevent adjustments of font size after orientation changes in
- *    IE on Windows Phone and in iOS.
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
  */
 html {
   height: 100%;
@@ -93,8 +93,8 @@ a:active {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/**
- * Basic typography style for copy text
+/**
+ * Basic typography style for copy text
  */
 .navbar-brand {
   border-left: 2px solid #1D1D1D;
@@ -231,7 +231,7 @@ h5 {
 .btn-primary:hover {
   color: #1D1D1D;
   background-color: #ffe241;
-  border: none;
+  border-color: #ebc700;
 }
 
 .btn-primary.focus,
@@ -239,7 +239,7 @@ h5 {
   color: #1D1D1D;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border: none;
+  border-color: #ebc700;
 }
 
 .btn-primary.disabled,
@@ -254,7 +254,7 @@ h5 {
 .show > .btn-primary.dropdown-toggle {
   color: #1D1D1D;
   background-color: #ffe241;
-  border: none;
+  border-color: #ebc700;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -262,13 +262,13 @@ h5 {
 .show > .btn-primary.dropdown-toggle:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
-  border: none;
+  border-color: #ebc700;
 }
 
 .btn-primary:active {
   color: #1D1D1D;
   background-color: #ffe241;
-  border: none;
+  border-color: #ebc700;
 }
 
 /* Ripple effect */
@@ -789,9 +789,9 @@ option::selection {
 }
 
 .tabcontent {
-  /* padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
+  /* padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
     float: right;*/
 }
 
@@ -851,6 +851,42 @@ option::selection {
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
   cursor: pointer;
+}
+
+.freelancers-main {
+  direction: rtl;
+  text-align: right;
+}
+
+.freelancers-panel {
+  background-color: #f3f1e3;
+  padding: 4vw;
+}
+
+.star-ratings-sprite {
+  background: url("../images/star-rating-sprite.png") repeat-x;
+  font-size: 0;
+  height: 21px;
+  line-height: 0;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 110px;
+  margin: 0 auto;
+}
+
+.star-ratings-sprite-rating {
+  background: url("../images/star-rating-sprite.png") repeat-x;
+  background-position: 0 100%;
+  float: left;
+  height: 21px;
+  display: block;
+}
+
+.freelancers-img-style {
+  width: 100%;
+  height: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .edit-profile-main {

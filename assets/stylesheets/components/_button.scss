@@ -54,14 +54,14 @@
 .btn-primary:hover {
     color: $dark-black;
     background-color: $primary;
-    border: none;
+    border-color: $primary-dark;
 }
 
 .btn-primary.focus,
 .btn-primary:focus {
     color: $dark-black;
     box-shadow: none;
-    border: none;
+    border-color: $primary-dark;
 }
 
 .btn-primary.disabled,
@@ -76,20 +76,20 @@
 .show>.btn-primary.dropdown-toggle {
     color: $dark-black;
     background-color: $primary;
-    border: none;
+    border-color: $primary-dark;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .show>.btn-primary.dropdown-toggle:focus {
     box-shadow: none;
-    border: none;
+    border-color: $primary-dark;
 }
 
 .btn-primary:active {
     color: $dark-black;
     background-color: $primary;
-    border: none;
+    border-color: $primary-dark;
 }
 
 /* Ripple effect */
