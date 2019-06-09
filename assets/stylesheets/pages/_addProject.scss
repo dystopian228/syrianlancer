@@ -3,6 +3,8 @@
     padding-top: 120px;
     padding-bottom: 120px;
     background-size: cover;
+    direction: rtl;
+    text-align: right;
 }
 
 .addProject-div {
@@ -20,6 +22,7 @@
     padding: 10px;
     text-align: center;
 }
+
 .addProject-div>p,
 .addProject-div>div>div>p {
     font-weight: bold;
@@ -27,10 +30,10 @@
 
 .text-box-addProject {
     font-size: 18px;
-   
+
     width: 210%;
     /*margin-top: 30px;*/
-  }
+}
 
 .addProject-btn {
     color: black;
@@ -64,14 +67,15 @@
     padding: 4px;
     border-radius: 3px;
     font-size: 18px;
-  
+
 }
-.margin-bottom-addProject{
+
+.margin-bottom-addProject {
     margin-top: 2px;
     margin-bottom: 50px;
     font-size: 14px;
     color: grey;
-  }
+}
 
 .col-centered {
     float: none;
@@ -85,7 +89,7 @@
     box-shadow: 0 1px $secondary-light;
 }
 
-.line-line{
+.line-line {
     padding: 5px;
     width: 100%;
 }

@@ -8,7 +8,6 @@ function loadProject(id) {
         data: 'fid=2&id=' + id,
         success: function (response) {
             var JsonArray = $.parseJSON(response);
-            alert(response);
             if (JsonArray[0].owner == 1) {
                 $("#project-main-card").html('<div class="row"><div class="col-10 d-flex mb-3"><img id="project-avatar" src="./assets/images/placeholder.png" class="project-avatar mb-auto mt-auto ml-4"><h2 id="project-name" class="primary-dark mb-auto mt-auto"</h2></div><div class="col-2 pull-2"><button id="edit-project" class="btn btn-primary ripple pull-left w-100">عدل</button></div></div><div class="row"><h6 class="card-subtitle col-10 mb-2 ml-2 text-muted"><span id="created_at"></span><span id="owner-name" class="ml-3"></span></h6></div>');
             } else {
@@ -133,7 +132,6 @@ $(function () {
                 datatype: 'text',
                 data: 'fid=3&id=' + project_id + '&duration=' + duration + '&price=' + price + '&offerText=' + offerText,
                 success: function (response) {
-                    alert(response);
                     var JsonObject = $.parseJSON(response);
                     if (JsonObject.logged == 0) {
                         $("#alert-div").html("<div class=\"alert alert-danger mb-5\" role=\"alert\">يجب تسجيل الدخول لترك عرض.</div>");
