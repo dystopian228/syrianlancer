@@ -70,7 +70,13 @@ a:active {
   font-weight: 400;
   font-display: swap;
   src: local("Cairo"), local("Cairo-Regular"), url(../fonts/cairo/cairo-1.woff2) format("woff2");
-  unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+  unicode-range: U+0600-06FF,
+ U+200C-200E,
+ U+2010-2011,
+ U+204F,
+ U+2E41,
+ U+FB50-FDFF,
+ U+FE80-FEFC;
 }
 
 /* latin-ext */
@@ -788,13 +794,6 @@ option::selection {
   height: 100%;
 }
 
-.tabcontent {
-  /* padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-    float: right;*/
-}
-
 .profile-forms {
   width: 95%;
   background-color: white;
@@ -903,5 +902,98 @@ option::selection {
 
 .image-upload > input {
   display: none;
+}
+
+.addProject-main {
+  background: url("../images/computers.png") no-repeat fixed center;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-size: cover;
+}
+
+.addProject-div {
+  margin: 10px;
+  padding: 30px;
+  direction: rtl;
+  text-align: right;
+  font-family: "Cairo", sans-serif;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.addProject-div > h1 {
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.addProject-div > p,
+.addProject-div > div > div > p {
+  font-weight: bold;
+}
+
+.text-box-addProject {
+  font-size: 18px;
+ 
+  width: 210%;
+  /*margin-top: 30px;*/
+}
+.margin-bottom-addProject{
+  margin-top: 2px;
+  margin-bottom: 50px;
+  font-size: 14px;
+  color: grey;
+}
+.addProject-btn {
+  color: black;
+  background-color: #ffe241;
+  border-color: #ffe241;
+  font-size: 20px;
+  font-weight: bold;
+  margin: auto;
+  display: block;
+}
+
+.addProject-btn:hover {
+  color: #1D1D1D;
+  border-color: #ffef95;
+  background-color: #ffef95;
+}
+
+.addProject-btn:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem #ffe241;
+          box-shadow: 0 0 0 0.2rem #ffe241;
+}
+
+.addProject-btn:active {
+  color: white;
+  border-color: #1D1D1D;
+  background-color: #ffe241;
+}
+
+.skills-select {
+  display: inline-block;
+  width: 210%;
+  padding: 4px;
+  border-radius: 3px;
+  font-size: 18px;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.pass-vis {
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid #ffef95;
+  -webkit-box-shadow: 0 1px #ffef95;
+          box-shadow: 0 1px #ffef95;
+}
+
+.line-line {
+  padding: 5px;
+  width: 100%;
 }
 /*# sourceMappingURL=main.css.map */

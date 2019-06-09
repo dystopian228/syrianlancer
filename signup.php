@@ -63,7 +63,7 @@ if(isset($_SESSION['userID'])){
             <i class="far fa-check-circle fa-7x" style="color:#33a51f;width:100%"></i>
             <h1 class="mt-5">تمت عملية التسجيل بنجاح</h1>
         </div>
-
+</div>
 </main>
 
 
