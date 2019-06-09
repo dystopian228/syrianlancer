@@ -1,0 +1,26 @@
+/* radio customization */
+
+
+.custom-radio>label.custom-control-label {
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+.custom-radio>label.custom-control-label::before,
+.custom-radio>label.custom-control-label::after {
+    right: 0;
+    left: auto;
+}
+
+.custom-control-label:before {
+    background-color: $light-black;
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before {
+    background-color: $primary;
+}
+
+
+.custom-radio .custom-control-input:checked~.custom-control-label::after {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='black'/%3E%3C/svg%3E");
+}

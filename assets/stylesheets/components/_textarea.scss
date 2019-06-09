@@ -1,17 +1,13 @@
 /* textbox customization */
 
-input[type=text]:focus:not([readonly]),
-input[type=password]:focus:not([readonly]),
-input[type=number]:focus:not([readonly]) {
+textarea.form-control:focus:not([readonly]) {
     border: none;
     border-bottom: 1px solid $primary;
     border-radius: 0px;
     box-shadow: 0 1px 0 0 $primary;
 }
 
-input[type=text],
-input[type=password],
-input[type=number] {
+textarea.form-control {
     border: none;
     border-bottom: 1px solid $secondary-light;
     border-radius: 0px;

@@ -92,22 +92,77 @@
     border-color: $primary-dark;
 }
 
+//btn-danger
+
+.btn-danger {
+    background-color: $danger;
+    border-color: $danger;
+    border-radius: 0px;
+}
+
+.btn-danger:hover {
+    background-color: $danger;
+    border-color: $danger-dark;
+}
+
+.btn-danger.focus,
+.btn-danger:focus {
+    box-shadow: none;
+    border-color: $danger-dark;
+}
+
+.btn-danger:not(:disabled):not(.disabled).active,
+.btn-danger:not(:disabled):not(.disabled):active,
+.show>.btn-danger.dropdown-toggle {
+    background-color: $danger;
+    border-color: $danger-dark;
+}
+
+.btn-danger:not(:disabled):not(.disabled).active:focus,
+.btn-danger:not(:disabled):not(.disabled):active:focus,
+.show>.btn-danger.dropdown-toggle:focus {
+    box-shadow: none;
+    border-color: $danger-dark;
+}
+
+.btn-danger:active {
+    background-color: $danger;
+    border-color: $danger-dark;
+}
+
 /* Ripple effect */
-.ripple {
+.btn-primary.ripple {
     color: $dark-black;
     background-position: center;
     transition: background 0.8s;
     border: none;
 }
 
-.ripple:hover {
+.btn-primary.ripple:hover {
     color: $dark-black;
     background: $primary radial-gradient(circle, transparent 1%, $primary-dark 1%) center/15000%;
     border: none;
 }
 
-.ripple:active {
+.btn-primary.ripple:active {
     color: $dark-black;
+    background-size: 100%;
+    transition: background 0s;
+    border: none;
+}
+
+.btn-danger.ripple {
+    background-position: center;
+    transition: background 0.8s;
+    border: none;
+}
+
+.btn-danger.ripple:hover {
+    background: $danger radial-gradient(circle, transparent 1%, $danger-dark 1%) center/15000%;
+    border: none;
+}
+
+.btn-danger.ripple:active {
     background-size: 100%;
     transition: background 0s;
     border: none;

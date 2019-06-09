@@ -13,9 +13,6 @@ if( $fid == 2 ){
 if( $fid == 3 ){
     logout();
 }
-if( $fid == 4 ){
-    editUser();
-}
 
 function signupSubmit()
 {
@@ -152,88 +149,4 @@ function logout(){
     unset($_SESSION['userID']);
     
 }
-
-function editUser() {
-    global $conn;
-    session_start();
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $birthDate = $_POST['birth_date'];
-    $gender = $_POST['gender'];
-    $country_id = $_POST['countryID'];
-
-    if(isset($_POST['newPassword']))
-        $newPassword = $_POST['newPassword'];
-
-    if(isset($_POST['currentPassword']))
-        $currentPassword = $_POST['currentPassword'];
-
-    if(isset($_POST['image']))
-        $image = $_POST['image'];
-    else 
-        $image = "./assets/images/placeholder.png";
-
-    if(!$conn){
-        die("Connection Failed: " . mysqli_connect_error());
-    }
-    else{
-        $arr = array();
-        if(isset($_POST['currentPassword'])){
-            echo "fdsfsdfds";
-            $sql='select password from users where id='.$_SESSION['userID'];
-            $stmt=mysqli_stmt_init($conn);
-            if(!mysqli_stmt_prepare($stmt,$sql)){
-                die("Connection Failed: " . mysqli_connect_error());
-            }
-            else {
-                mysqli_stmt_execute($stmt);
-                $result = mysqli_stmt_get_result($stmt);
-                if($row = mysqli_fetch_assoc($result)){
-                    $pwdcheck=password_verify($currentPassword,$row['password']);
-                    echo $pwdcheck;
-                    echo $currentPassword;
-                    echo $row['password'];
-
-                    if($pwdcheck == false)
-                    {
-                        $arr['failure'] = "1";
-                        echo json_encode($arr);
-                    }
-                    else if($pwdcheck == true) {
-                        $sql = "UPDATE users
-                        SET first_name = ?, last_name = ?, password = ?, gender = ?, birth_date = ?, updated_at = ?, image = ?, country_id = ?
-                        WHERE id = ". $_SESSION['userID'];
-                        $stmt = mysqli_stmt_init($conn);
-                        if (!mysqli_stmt_prepare($stmt, $sql)) {
-                            die("Connection Failed: " . $stmt->error);
-                        } else {
-                        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-                        $dateNow=date("Y-m-d H:i:s");
-                        mysqli_stmt_bind_param($stmt, "sssssssi", $firstName, $lastName, $hashedPassword, $gender, $birthDate, $dateNow, $image, $country_id);
-                        mysqli_stmt_execute($stmt);
-                        $arr['success'] = '1';
-                        echo json_encode($arr);
-                        }
-                    }
-                }
-                mysqli_stmt_close($stmt);
-            }
-        }
-        else {
-            echo $birthDate;
-            $sql = "UPDATE users SET first_name = ?, last_name = ?, gender = ?, birth_date = ?, updated_at = ?, image = ?, country_id = ? WHERE id = ". $_SESSION['userID'];
-            $stmt = mysqli_stmt_init($conn);
-            if (!mysqli_stmt_prepare($stmt, $sql)) {
-                die("Connection Failed: " . $stmt->error);
-            } else {
-            $dateNow=date("Y-m-d H:i:s");
-            mysqli_stmt_bind_param($stmt, "ssssssi", $firstName, $lastName, $gender, $birthDate, $dateNow, $image, $country_id);
-            mysqli_stmt_execute($stmt) or die($stmt->error);
-            $arr['success'] = '1';
-            echo json_encode($arr);
-            }
-            mysqli_stmt_close($stmt);
-        }
-    }
-    mysqli_close($conn);
-}
+?>

@@ -36,11 +36,10 @@ $(document).ready(function () {
     //Populate user data fields. 
     $.ajax({
         type: 'GET',
-        url: 'src/Controllers/LoadingController.php',
+        url: 'src/Controllers/ProfileController.php',
         datatype: 'text',
-        data: "fid=2",
+        data: "fid=1",
         success: function (response) {
-            alert(response);
             var JsonObject = $.parseJSON(response);
             $("#profile-avatar").attr("src", JsonObject.image);
             $("#firstName").val(JsonObject.first_name);
@@ -48,7 +47,9 @@ $(document).ready(function () {
             $("#country").val(JsonObject.country_id);
             $("#birthDate").val(JsonObject.birth_date);
             $("#gender").val(JsonObject.gender);
-            $("#language").val("arabic");
+            $("#mainFocus").val(JsonObject.main_focus);
+            if (JsonObject.isfreelancer == 1)
+                $("#isFreelancer").prop('checked', true);
         },
         error: function (jqXHR, exception) {
             var msg = '';
@@ -93,18 +94,21 @@ function editForm() {
     let lastName = $("#lastName").val();
     let country = $("#country").val();
     let gender = $("#gender").val();
-    let language = $("#language").val();
     let birthDate = $("#birthDate").val();
     let currentPassword = $("#current-password").val();
     let newPassword = $("#new-password").val();
     let confirmPassword = $("#confirm-password").val();
-    var data = "fds";
+    let mainFocus = $("#mainFocus").val();
+    let isFreelancer = 0;
+    if ($("#isFreelancer").prop("checked"))
+        isFreelancer = 1;
+
 
     let _firstName = true;
     let _lastName = true;
     let _country = true;
     let _gender = true;
-    let _language = true;
+    let _mainFocus = true;
     let _birthDate = true;
     let _passwordChange = false;
     let _newPassword = true;
@@ -169,25 +173,24 @@ function editForm() {
 
     if (_birthDate && _firstName && _lastName && _country && _gender) {
         if (_passwordChange && !_passError) {
-            data = "fid=4&firstName=" + firstName.trim() + "&lastName=" + lastName.trim() + "&birth_date=" + birthDate + "&newPassword=" + newPassword + "&currentPassword=" + currentPassword + "&birthDate=" + birthDate + "&countryID=" + country + "&gender=" + gender;
+            data = "fid=2&firstName=" + firstName.trim() + "&lastName=" + lastName.trim() + "&birth_date=" + birthDate + "&newPassword=" + newPassword + "&currentPassword=" + currentPassword + "&birthDate=" + birthDate + "&countryID=" + country + "&gender=" + gender + "&main_focus=" + mainFocus + "&isfreelancer=" + isFreelancer;
         } else {
-            data = "fid=4&firstName=" + firstName.trim() + "&lastName=" + lastName.trim() + "&birth_date=" + birthDate + "&countryID=" + country + "&gender=" + gender;
+            data = "fid=2&firstName=" + firstName.trim() + "&lastName=" + lastName.trim() + "&birth_date=" + birthDate + "&countryID=" + country + "&gender=" + gender + "&main_focus=" + mainFocus + "&isfreelancer=" + isFreelancer;
         }
         if (!_passError) {
-            alert(data);
             $.ajax({
                 type: 'POST',
-                url: 'src/Controllers/AuthenticationController.php',
+                url: 'src/Controllers/ProfileController.php',
                 datatype: 'text',
                 data: data,
                 success: function (response) {
-                    alert(response);
+                    $("#alert-div").html("");
                     var JsonArray = $.parseJSON(response);
                     if (JsonArray['success'] == '1') {
                         $("#alert-div").html("<div class=\"alert alert-success mb-5\" role=\"alert\">تم تعديل معلوماتك بنجاح.</div>");
                     } else if (JsonArray['failure'] == '1') {
                         $("#alert-div").html("<div class=\"alert alert-danger mb-5\" role=\"alert\">حصل خطأ. تأكد من صحة المعلومات المدخلة.</div>");
-                        $("#current-pass-error").append("كلمة المرور الحالية غير صحيحة.");
+                        $("#current-pass-error").html("كلمة المرور الحالية غير صحيحة.");
                     }
                 },
                 error: function (jqXHR, exception) {

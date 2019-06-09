@@ -52,12 +52,25 @@ if(!isset($_SESSION['userID'])){
                         <div id="gender-error" class="error"></div>
                     </div>
                     <div class="col-md-6 mb-4">
-                        <label class="control-label" for="language">اللغة<span style="color: red;">*</span></label>
-                        <select name="language" id="language" class="form-control gender-select">
-                            <option value="arabic">العربية</option>
-                            <option value="english">English</option>
+                        <label class="control-label" for="mainFocus">مجال العمل</label>
+                        <select name="mainFocus" id="mainFocus" class="form-control gender-select">
+                        <option value="business">أعمال وخدمات استشارية وإدارية</option>
+                        <option value="marketing">تسويق الكتروني ومبيعات</option>
+                        <option value="programming">برمجة، تطوير المواقع والتطبيقات</option>
+                        <option value="language">كتابة، تحرير، ترجمة ولغات</option>
+                        <option value="design">تصميم وأعمال فنية وإبداعية</option>
+                        <option value="training">تدريب، تعليم ومساعدة عن بعد</option>
+                        <option value="business">أمور أخرى</option>
                         </select>
-                        <div id="language-error" class="error"></div>
+                        <div id="mainFocus-error" class="error"></div>
+                    </div>
+                </div>
+                <div class="row ml-5 mr-5">
+                    <div class="col-md-12 mb-4">
+                    <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" value=0 id="isFreelancer">
+                            <label class="custom-control-label"  for="isFreelancer">مستقل؟ <small> (ستعرض صفحتك على صفحة تصفح المستقلين ان كنت مختار هذا الخيار)</small></label>
+                        </div>
                     </div>
                 </div>
                 <div class="row ml-5 mr-5">

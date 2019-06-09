@@ -1,13 +1,13 @@
 /* Checkbox customization */
 
 
-label.custom-control-label {
+.custom-checkbox>label.custom-control-label {
     position: relative;
     padding-right: 1.5rem;
 }
 
-label.custom-control-label::before,
-label.custom-control-label::after {
+.custom-checkbox>label.custom-control-label::before,
+.custom-checkbox>label.custom-control-label::after {
     right: 0;
     left: auto;
 }

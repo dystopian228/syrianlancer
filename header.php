@@ -17,14 +17,17 @@
                 echo '<script src="./assets/js/_signup.js"></script>';
                 echo '<script type="text/javascript" src="./assets/js/bootstrap-datepicker.min.js"></script>';
                 echo '<link rel="stylesheet" href="./assets/stylesheets/bootstrap-datepicker3.css"/>';
-            if (basename($_SERVER['PHP_SELF']) == 'projects.php')
-                echo '<script src="./assets/js/_projects.js"></script>';
+            if (basename($_SERVER['PHP_SELF']) == 'browse.php')
+                echo '<script src="./assets/js/_browseProjects.js"></script>';
             if (basename($_SERVER['PHP_SELF']) == 'login.php')
                 echo '<script src="./assets/js/_login.js"></script>';
             if(basename($_SERVER['PHP_SELF']) == 'edit_profile.php')
                 echo '<script src="./assets/js/_edit_profile.js"></script>';
             if(basename($_SERVER['PHP_SELF']) == 'freelancers.php')
                 echo '<script src="./assets/js/_freelancers.js"></script>';
+            if(basename($_SERVER['PHP_SELF']) == 'project.php')
+                echo '<script src="./assets/js/_project.js"></script>';
+
         ?>
     
     <link rel="stylesheet" href="./assets/stylesheets/main.css">
@@ -66,7 +69,7 @@
         <div class="collapse navbar-collapse" id="nav-items">
             <ul class="nav navbar-right mt-4 mb-4 mr-2">
                 <li><a class="nav-link" href="addProject.php">أضف عمل</a></li>
-                <li><a class="nav-link" href="projects.php">تصفح الأعمال</a></li>
+                <li><a class="nav-link" href="browse.php">تصفح الأعمال</a></li>
                 <li><a class="nav-link" href="freelancers.php">تصفح المستقلين</a></li>
                 <?php
                 if(isset($_SESSION['userID']))

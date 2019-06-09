@@ -57,8 +57,6 @@ function search(page) {
                     }
 
                     $("#freelancers-deck").append('<div class="col-md-4 p-2 freelancer-card "><div class="card "><div class="card-body text-center"><div><img class="freelancers-img-style" src="./assets/images/placeholder.png" alt="card image" /></div><h4 class="mt-3 card-title">' + name + '</h4><p class="card-text my-4">' + focusVal + '</p><div class="star-ratings-sprite my-3"><span style="width:' + ((rating * 100) / 5) + '%" class="star-ratings-sprite-rating"></span></div><button class="btn btn-primary ripple" onclick="location.href = \'profile.php?id=' + userID + '\';"><i class="ml-2 fas fa-user-alt"></i>الصفحة الشخصية</button></div></div></div>');
-
-
                 }
 
                 //draw the page navigator  

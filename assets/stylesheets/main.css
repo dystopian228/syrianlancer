@@ -35,6 +35,14 @@ a:active {
   height: 192px;
 }
 
+.primary {
+  color: #ffe241;
+}
+
+.primary-dark {
+  color: #ebc700;
+}
+
 @font-face {
   font-family: 'Cairo';
   font-style: normal;
@@ -277,8 +285,46 @@ h5 {
   border-color: #ebc700;
 }
 
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 0px;
+}
+
+.btn-danger:hover {
+  background-color: #dc3545;
+  border-color: #bb2d3b;
+}
+
+.btn-danger.focus,
+.btn-danger:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-color: #bb2d3b;
+}
+
+.btn-danger:not(:disabled):not(.disabled).active,
+.btn-danger:not(:disabled):not(.disabled):active,
+.show > .btn-danger.dropdown-toggle {
+  background-color: #dc3545;
+  border-color: #bb2d3b;
+}
+
+.btn-danger:not(:disabled):not(.disabled).active:focus,
+.btn-danger:not(:disabled):not(.disabled):active:focus,
+.show > .btn-danger.dropdown-toggle:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-color: #bb2d3b;
+}
+
+.btn-danger:active {
+  background-color: #dc3545;
+  border-color: #bb2d3b;
+}
+
 /* Ripple effect */
-.ripple {
+.btn-primary.ripple {
   color: #1D1D1D;
   background-position: center;
   -webkit-transition: background 0.8s;
@@ -286,13 +332,13 @@ h5 {
   border: none;
 }
 
-.ripple:hover {
+.btn-primary.ripple:hover {
   color: #1D1D1D;
   background: #ffe241 radial-gradient(circle, transparent 1%, #ebc700 1%) center/15000%;
   border: none;
 }
 
-.ripple:active {
+.btn-primary.ripple:active {
   color: #1D1D1D;
   background-size: 100%;
   -webkit-transition: background 0s;
@@ -300,14 +346,33 @@ h5 {
   border: none;
 }
 
+.btn-danger.ripple {
+  background-position: center;
+  -webkit-transition: background 0.8s;
+  transition: background 0.8s;
+  border: none;
+}
+
+.btn-danger.ripple:hover {
+  background: #dc3545 radial-gradient(circle, transparent 1%, #bb2d3b 1%) center/15000%;
+  border: none;
+}
+
+.btn-danger.ripple:active {
+  background-size: 100%;
+  -webkit-transition: background 0s;
+  transition: background 0s;
+  border: none;
+}
+
 /* Checkbox customization */
-label.custom-control-label {
+.custom-checkbox > label.custom-control-label {
   position: relative;
   padding-right: 1.5rem;
 }
 
-label.custom-control-label::before,
-label.custom-control-label::after {
+.custom-checkbox > label.custom-control-label::before,
+.custom-checkbox > label.custom-control-label::after {
   right: 0;
   left: auto;
 }
@@ -326,7 +391,8 @@ label.custom-control-label::after {
 
 /* textbox customization */
 input[type=text]:focus:not([readonly]),
-input[type=password]:focus:not([readonly]) {
+input[type=password]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]) {
   border: none;
   border-bottom: 1px solid #ffe241;
   border-radius: 0px;
@@ -335,7 +401,8 @@ input[type=password]:focus:not([readonly]) {
 }
 
 input[type=text],
-input[type=password] {
+input[type=password],
+input[type=number] {
   border: none;
   border-bottom: 1px solid #ffef95;
   border-radius: 0px;
@@ -471,6 +538,47 @@ option::selection {
 
 .error {
   color: #990f0f;
+}
+
+/* radio customization */
+.custom-radio > label.custom-control-label {
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.custom-radio > label.custom-control-label::before,
+.custom-radio > label.custom-control-label::after {
+  right: 0;
+  left: auto;
+}
+
+.custom-control-label:before {
+  background-color: #585858;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #ffe241;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='black'/%3E%3C/svg%3E");
+}
+
+/* textbox customization */
+textarea.form-control:focus:not([readonly]) {
+  border: none;
+  border-bottom: 1px solid #ffe241;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 1px 0 0 #ffe241;
+          box-shadow: 0 1px 0 0 #ffe241;
+}
+
+textarea.form-control {
+  border: none;
+  border-bottom: 1px solid #ffef95;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 1px 0 0 #ffef95;
+          box-shadow: 0 1px 0 0 #ffef95;
 }
 
 #sl-jumbo-cont {
@@ -850,6 +958,33 @@ option::selection {
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
   cursor: pointer;
+}
+
+.project-main {
+  direction: rtl;
+  text-align: right;
+}
+
+.project-avatar {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.offer-avatar {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.project-detail {
+  font-size: 16px;
+}
+
+.project-main .card {
+  background-color: #f3f1e3;
 }
 
 .freelancers-main {

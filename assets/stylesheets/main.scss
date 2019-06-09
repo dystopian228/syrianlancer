@@ -25,14 +25,17 @@
 'components/slider',
 'components/select',
 'components/pagination',
-'components/error-div';
+'components/error-div',
+'components/radio',
+'components/textarea';
 
 // 6. Page-specific styles
 @import 'pages/home',
 'pages/login',
 'pages/signup',
 'pages/profile',
-'pages/projects',
+'pages/browse',
+'pages/project',
 'pages/freelancers',
 'pages/edit_profile',
 'pages/addProject';
