@@ -65,8 +65,8 @@ if(!isset($_GET['id'])){
                         <div id="duration-error" class="error"></div>
                     </div>
                     <div class="col-md-4 mb-4 pr-4 pl-4">
-                        <label class="control-label" for="price">المبلغ المطلوب<span style="color: red;">*</span></label>
-                        <input type="number" name="price" id="price" class="form-control">
+                        <label class="control-label" for="offer-price">المبلغ المطلوب<span style="color: red;">*</span></label>
+                        <input type="number" name="offer-price" id="offer-price" class="form-control">
                         <div id="price-error" class="error"></div>
                     </div>
                     <div class="col-md-4 mb-4 pl-4 pr-4">
@@ -81,7 +81,7 @@ if(!isset($_GET['id'])){
                 </div>
                 <div class="row mb-4 pr-4 pl-4">
                     <div class="col-md-4">
-                        <button class="btn btn-primary ripple" id="add-offer" onclick="addOffer()">أضف العرض</button>
+                        <button class="btn btn-primary ripple" id="add-offer">أضف العرض</button>
                     </div>
                 </div>
             </div>
