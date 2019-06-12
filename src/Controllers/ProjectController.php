@@ -251,7 +251,7 @@
             die("Connection Failed: " . mysqli_connect_error());
         } else {
             $arr=array();
-            $sql="SELECT projects.*, users.first_name, users.last_name, users.image, count(offers.id) as offersNum, avg(offers.price) as offersAvg from projects, users, offers where projects.id= ? and projects.owner_id = users.id and projects.id = offers.project_id";
+            $sql="SELECT projects.*, users.first_name, users.last_name, users.image, count(offers.id) as offersNum, CAST(avg(offers.price) as decimal(18,2)) as offersAvg from projects, users, offers where projects.id= ? and projects.owner_id = users.id and projects.id = offers.project_id";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 die("Connection Failed: " . $stmt->error);        

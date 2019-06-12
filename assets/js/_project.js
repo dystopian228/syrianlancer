@@ -7,7 +7,6 @@ function loadProject(id) {
 		datatype: 'text',
 		data: 'fid=2&id=' + id,
 		success: function (response) {
-			alert(response);
 			var JsonArray = $.parseJSON(response);
 			project_id = JsonArray[0].id;
 			var project_category;
