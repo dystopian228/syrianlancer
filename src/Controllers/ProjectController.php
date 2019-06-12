@@ -281,7 +281,7 @@
                 }
             }
 
-            $sqlo="SELECT offers.price, offers.duration, offers.description, offers.created_at, users.first_name, users.last_name, users.main_focus, users.image from offers, users where project_id= ? and users.id=offers.user_id";
+            $sqlo="SELECT offers.user_id, offers.price, offers.duration, offers.description, offers.created_at, users.first_name, users.last_name, users.main_focus, users.image from offers, users where project_id= ? and users.id=offers.user_id";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sqlo)) {
                 die("Connection Failed: " . $stmt->error);        
@@ -292,6 +292,21 @@
 
                 if (mysqli_num_rows($result) > 0) { 
                     while ($row = mysqli_fetch_assoc($result) ) {
+                        $row['offer_own']=1;
+                        if(isset($_SESSION['userID'])){
+                            if ($_SESSION['userID']==$row['user_id'])
+                            {
+                                $row['offer_own']=1;
+                            }
+                            else
+                            {
+                                $row['offer_own']=0;
+                            }
+                        }
+                        else
+                        {
+                            $row['offer_own']=0;
+                        }
                         $arr[]=$row;
                     }
                 }

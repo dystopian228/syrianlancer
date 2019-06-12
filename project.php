@@ -41,7 +41,7 @@ if(!isset($_GET['id'])){
                         <span class="project-detail ml-3 primary-dark"> عدد العروض:</span><span id="offer-count">25.00</span>
                     </div>
                 </div>
-                <p id="description" class="project-detail card-text">
+                <p id="description" class="project-detail card-text text-justify">
                     Some quick example text to build on the card title
                     and make up the bulk of the card's content.
                 </p>

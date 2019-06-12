@@ -24,7 +24,7 @@ function submitForm() {
 			url: 'src/Controllers/AuthenticationController.php',
 			datatype: 'text',
 			data: 'fid=2&username=' + username + '&password=' + password,
-			success: function(response) {
+			success: function (response) {
 				var JsonArray = $.parseJSON(response);
 				//alert("user " + JsonArray['user'] );
 				//alert("pwd "+JsonArray['password']);
@@ -37,9 +37,8 @@ function submitForm() {
 				if (JsonArray['user'] == 1 && JsonArray['password'] == 1) {
 					$(location).attr('href', './index.php');
 				}
-				document.location.href = 'index.php';
 			},
-			error: function(jqXHR, exception) {
+			error: function (jqXHR, exception) {
 				var msg = '';
 				if (jqXHR.status === 0) {
 					msg = 'Not connect.\n Verify Network.';
