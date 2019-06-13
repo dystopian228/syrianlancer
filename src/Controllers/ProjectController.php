@@ -52,11 +52,11 @@
         } else {
             $arr=array();
             $catarr=implode(',', $cats);
-            $sqlc = "SELECT DISTINCT projects.id as proj_id, projects.name as project_name, SUBSTRING(projects.description, 1, 80) as description, projects.category as category, users.first_name as firstName, users.last_name as lastName, (SELECT COUNT(offers.id) FROM offers where proj_id = offers.id) as offerCount
-                    from projects, users
-                    WHERE projects.owner_id = users.id
-                    and projects.deleted=0
-                    and projects.archived=0
+            $sqlc = "SELECT DISTINCT projects.id as proj_id, projects.name as project_name, SUBSTRING(projects.description, 1, 80) as description, projects.category as category, users.first_name as firstName, users.last_name as lastName, (SELECT COUNT(*) FROM offers where offers.project_id = proj_id) as offerCount
+            from projects, users
+            WHERE projects.owner_id = users.id
+            and projects.deleted=0
+            and projects.archived=0
                     and (SELECT count(*)
                         from offers, freelancer_projects
                         where offers.id = freelancer_projects.offer_id
@@ -143,7 +143,7 @@
                     $this_page_first_result = ($page-1)*$results_per_page;
 
 
-                    $sql = "SELECT DISTINCT projects.id as proj_id, projects.name as project_name, SUBSTRING(projects.description, 1, 80) as description, projects.category as category, users.first_name as firstName, users.last_name as lastName, (SELECT COUNT(offers.id) FROM offers, projects where proj_id = offers.id) as offerCount
+                    $sql = "SELECT DISTINCT projects.id as proj_id, projects.name as project_name, SUBSTRING(projects.description, 1, 80) as description, projects.category as category, users.first_name as firstName, users.last_name as lastName, (SELECT COUNT(*) FROM offers where offers.project_id = proj_id) as offerCount
                     from projects, users
                     WHERE projects.owner_id = users.id
                     and projects.deleted=0
