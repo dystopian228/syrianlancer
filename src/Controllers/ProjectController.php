@@ -336,16 +336,17 @@
             if (!$conn) {
                 die("Connection Failed: " . mysqli_connect_error());
             } else {
-                $sqlCheck="SELECT * FROM offers WHERE user_id = ?";
+                $sqlCheck="SELECT * FROM offers WHERE user_id = ? and project_id = ?";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sqlCheck)) {
                     die("Connection Failed: " . $stmt->error);
                 } else {
-                    mysqli_stmt_bind_param($stmt, "i", $user_id);
+                    mysqli_stmt_bind_param($stmt, "ii", $user_id, $project_id);
                     mysqli_stmt_execute($stmt) or die($stmt->error);
                     $result=mysqli_stmt_get_result($stmt);
                     if (mysqli_num_rows($result) > 0) { 
                         $arr['success']=0;
+                        echo mysqli_num_rows($result);
                     }
                     else {
                         mysqli_stmt_close($stmt);

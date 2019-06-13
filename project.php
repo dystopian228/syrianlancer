@@ -2,7 +2,7 @@
 require 'header.php';
 if(!isset($_GET['id'])){ 
     header("Location: browse.php");
-}else {
+} else {
     echo '<script>loadProject('. $_GET['id'] . ')</script>';
 }
 ?>
@@ -14,7 +14,7 @@ if(!isset($_GET['id'])){
         <div class="row">
         <div class="col-10 d-flex mb-3">
             <img id="project-avatar" src="./assets/images/placeholder.png" class="project-avatar mb-auto mt-auto ml-4">
-            <h2 id="project-name" class="primary-dark mb-auto mt-auto"</h2>      
+            <h2 id="project-name" class="primary-dark mb-auto mt-auto"></h2>      
         </div>
         <div class="col-2 pull-2"><button id="edit-project" class="btn btn-primary ripple pull-left w-100">عدل</button></div>
         </div>
