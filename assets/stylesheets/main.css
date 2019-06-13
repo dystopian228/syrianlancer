@@ -1128,4 +1128,14 @@ textarea.form-control {
   padding: 5px;
   width: 100%;
 }
+
+.chat-main {
+  direction: rtl;
+  text-align: right;
+}
+
+.chat-panel {
+  background-color: #f3f1e3;
+  padding: 4vw;
+}
 /*# sourceMappingURL=main.css.map */
