@@ -1,4 +1,9 @@
 <?php
+
+echo '<script> 
+    var freelancer_projects = "'.$_GET['freelancer_projects'].'" 
+</script>'; 
+
 include 'header.php';
 
 if(!isset($_SESSION['userID']))
@@ -19,6 +24,7 @@ if(!isset($_SESSION['userID']))
             <hr class="mb-5">
             <div class="row mb-4 pr-4 pl-4">
                 <textarea name="message-content" rows="10" id="message-content" class="form-control"></textarea>
+                <div id="text-error" class="error"></div>
             </div>
             <div class="row mb-4 pr-4 pl-4">
                 <div class="col-md-4">
