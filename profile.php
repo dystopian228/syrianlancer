@@ -14,7 +14,7 @@ else {
 <div class="row mt-5 justify-content-center">
     <div class="col-md-4"></div>
     <div class="col-md-4 text-center">
-        <img src="./assets/clipart/anonymous.png" class="profile-img cent">
+        <img id="profile-image" src="./assets/clipart/anonymous.png" class="profile-img cent">
         <br>
         <div class="container profile-head">
             <h1 id="profile-name">Jane Doe</h1>
@@ -40,7 +40,7 @@ else {
 
     <form class="profile-forms">
         <div class="pr">
-            <h3 class="profile-section"> <img id="profile-image" class="job1" src="./assets/clipart/1006517.png">تعريف بي:</h3>
+            <h3 class="profile-section"> <img class="job1" src="./assets/clipart/1006517.png">تعريف بي:</h3>
             <hr>
             <p id="profile-description" class="hello"></p>
             <br>

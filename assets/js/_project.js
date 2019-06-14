@@ -19,8 +19,7 @@ function loadProject(id) {
 			else project_category = 'أمور أخرى';
 			if (JsonArray[0].owner == 1) {
 				$('#project-main-card').html(
-					'<div class="row"><div class="col-10 d-flex mb-3"><img id="project-avatar" src="./assets/images/placeholder.png" class="project-avatar mb-auto mt-auto ml-4"><h2 id="project-name" class="primary-dark mb-auto mt-auto"</h2></div><div class="col-sm-2 pull-sm-2"><button id="edit-project" class="btn btn-primary ripple pull-left w-100 mb-2">تعديل المشروع</button><button id="remove-project" class="btn btn-danger ripple pull-left w-100">حذف العمل</button></div></div><div class="row"><h6 class="card-subtitle col-10 mb-2 ml-2 text-muted"><i class="fas fa-calendar-alt ml-1"></i><span id="created_at" class="ml-3"></span><i class="fas fa-user ml-1"></i><span id="owner-name" class="ml-3"></span><i class="fas fa-tags ml-1"></i><span id="project-category" class="ml-3"></span></h6></div>'
-				);
+					'<div class="row"><div class="col-10 d-flex mb-3"><img id="project-avatar" src="./assets/images/placeholder.png" class="project-avatar mb-auto mt-auto ml-4"><h2 id="project-name" class="primary-dark mb-auto mt-auto"</h2></div><div class="col-sm-2 pull-sm-2">' + (JsonArray[0].completed == null ? '<button id="edit-project" class="btn btn-primary ripple pull-left w-100 mb-2">تعديل المشروع</button>' : '') + '<button id="remove-project" class="btn btn-danger ripple pull-left w-100">حذف العمل</button></div></div><div class="row"><h6 class="card-subtitle col-10 mb-2 ml-2 text-muted"><i class="fas fa-calendar-alt ml-1"></i><span id="created_at" class="ml-3"></span><i class="fas fa-user ml-1"></i><span id="owner-name" class="ml-3"></span><i class="fas fa-tags ml-1"></i><span id="project-category" class="ml-3"></span></h6></div>');
 			} else {
 				$('#project-main-card').html(
 					'<div class="row"><div class="col-10 d-flex mb-3"><img id="project-avatar" src="./assets/images/placeholder.png" class="project-avatar mb-auto mt-auto ml-4"><h2 id="project-name" class="primary-dark mb-auto mt-auto"</h2></div><div class="col-sm-2 pull-sm-2"><button id="report-project" class="btn btn-danger ripple pull-left w-100">تبليغ عن العمل</button></div></div><div class="row"><h6 class="card-subtitle col-10 mb-2 ml-2 text-muted"><i class="fas fa-calendar-alt ml-1"></i><span id="created_at" class="ml-3"></span><i class="fas fa-user ml-1"></i><span id="owner-name" class="ml-3"></span><i class="fas fa-tags ml-1"></i><span id="project-category" class="ml-3"></span></h6></div>'
@@ -39,6 +38,13 @@ function loadProject(id) {
 			else $('#offer-average').html(avg);
 			$('#offer-count').html(JsonArray[0].offersNum);
 			$('#description').html(JsonArray[0].description);
+			if (JsonArray[0].completed == 1) {
+				$('#project-details-header').append('<div class="col-2 pull-2"><span class="badge badge-success pull-left w-100">منتهي التنفيذ</span></div>')
+			} else if (JsonArray[0].completed == 0) {
+				$('#project-details-header').append('<div class="col-2 pull-2"><span class="badge badge-warning pull-left w-100">قيد التنفيذ</span></div>')
+			} else {
+				$('#project-details-header').append('<div class="col-2 pull-2"><span class="badge badge-info pull-left w-100">تقديم الطلبات</span></div>')
+			}
 			var created_at;
 			for (var i = 1; i < JsonArray.length; i++) {
 				date = new Date(JsonArray[i].created_at);
@@ -62,9 +68,9 @@ function loadProject(id) {
 						' ' +
 						JsonArray[i].last_name +
 						'</h5></div><div class="col-sm-2 pull-sm-2">' +
-						'<button id="choose' +
-						i +
-						'"class="btn btn-primary ripple pull-left w-100 mb-2">اختر هذا العرض</button>' +
+						(JsonArray[0].completed == null ? '<button id="choose' +
+							i +
+							'"class="btn btn-primary ripple pull-left w-100 mb-2">اختر هذا العرض</button>' : '') +
 						'<button id="report' +
 						i +
 						'"class="btn btn-danger ripple pull-left w-100">تبليغ عن العرض</button></div></div><h6 class="card-subtitle mb-2 ml-2 text-muted"><small id="created-at-' +
@@ -136,7 +142,7 @@ function loadProject(id) {
 							' ' +
 							JsonArray[i].last_name +
 							'</h5></div><div class="col-sm-2 pull-sm-2">' +
-							'<button id="edit-offer" class="btn btn-primary ripple pull-left w-100 mb-2">تعديل العرض</button><button id="remove-offer" class="btn btn-danger ripple pull-left w-100">حذف العرض</button></div></div><h6 class="card-subtitle mb-2 ml-2 text-muted"><small id="created-at-' +
+							(JsonArray[0].completed == null ? '<button id="edit-offer" class="btn btn-primary ripple pull-left w-100 mb-2">تعديل العرض</button>' : '') + '<button id="remove-offer" class="btn btn-danger ripple pull-left w-100">حذف العرض</button></div></div><h6 class="card-subtitle mb-2 ml-2 text-muted"><small id="created-at-' +
 							i +
 							'" class="ml-3"><i class="fas fa-calendar-alt ml-1"></i>' +
 							created_at +
@@ -161,7 +167,9 @@ function loadProject(id) {
 					}
 				}
 			}
-			if (JsonArray[0].owner == 1) $('#add-offer-card').remove();
+			if (JsonArray.length == 0)
+				$('#offers-holder').append('<h4 class="text-center font-weight-bold">لا يوجد اية عروض</h4>');
+			if (JsonArray[0].owner == 1 || JsonArray[0].completed != null) $('#add-offer-card').remove();
 			$('#cover').removeClass('invisible');
 		},
 		error: function (jqXHR, exception) {

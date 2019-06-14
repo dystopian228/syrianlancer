@@ -257,7 +257,7 @@
             die("Connection Failed: " . mysqli_connect_error());
         } else {
             $arr=array();
-            $sql="SELECT projects.*, users.first_name, users.last_name, users.image, count(offers.id) as offersNum, CAST(avg(offers.price) as decimal(18,2)) as offersAvg from projects, users, offers where projects.id= ? and projects.owner_id = users.id and projects.id = offers.project_id";
+            $sql="SELECT projects.*, users.first_name, users.last_name, users.image, count(offers.id) as offersNum, CAST(avg(offers.price) as decimal(18,2)) as offersAvg, freelancer_projects.completed from projects, users, offers, freelancer_projects where projects.id= ? and projects.owner_id = users.id and projects.id = offers.project_id and offers.id=freelancer_projects.offer_id and freelancer_projects.dropped=0";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 die("Connection Failed: " . $stmt->error);        
@@ -471,6 +471,7 @@
             $sqlc = "SELECT projects.id as proj_id, projects.name, projects.category, projects.created_at,
             (select users.first_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as firstName,
             (select users.last_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as lastName,
+            (select users.id from users, projects where projects.id=proj_id and projects.owner_id = users.id) as owner_id,
             freelancer_projects.completed
                         from projects, users, freelancer_projects, offers
                         where projects.deleted=0
@@ -503,6 +504,7 @@
                     $sql = "SELECT projects.id as proj_id, projects.name, projects.category, projects.created_at,
                     (select users.first_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as firstName,
                     (select users.last_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as lastName,
+                    (select users.id from users, projects where projects.id=proj_id and projects.owner_id = users.id) as owner_id,
                     freelancer_projects.completed
                                 from projects, users, freelancer_projects, offers
                                 where projects.deleted=0

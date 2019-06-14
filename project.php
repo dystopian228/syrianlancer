@@ -24,7 +24,9 @@ if(!isset($_GET['id'])){
 
         </div>
         <div class="card p-5 mt-5">
-            <h3 class="card-title primary-dark">تفاصيل العمل</h3>
+        <div id="project-details-header" class="row">
+            <div class="col-10"><h3 class="card-title primary-dark">تفاصيل العمل</h3></div>
+        </div>
             <hr class="mb-5">
             <div class="card-text">
                 <div class="row mb-5">

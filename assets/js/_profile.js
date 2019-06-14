@@ -70,10 +70,10 @@ function loadOwnedProjects(id, page) {
             $('#owned-projects-holder').html("");
             for (var i = 0; i < JsonArray.length - 3; i++) {
                 date = new Date(JsonArray[i].created_at);
-                $('#owned-projects-holder').append('<div><p class=\"lii\">' +
+                $('#owned-projects-holder').append('<div><a class=\"lii\" href ="project.php?fid=2&id=' + JsonArray[i].proj_id + '">' +
                     JsonArray[i].name +
-                    '</p><p><img class="job2" src="./assets/clipart/189061.png">' + (JsonArray[i].firstName == undefined ? 'لا يوجد' : JsonArray[i].firstName + ' ' + JsonArray[i].lastName) +
-                    '<img class="job3" src="./assets/clipart/circular-clock.png">' + getFormattedDate(date) +
+                    '</a>' + (JsonArray[i].firstName == undefined ? '<p><img class="job2" src="./assets/clipart/189061.png">لا يوجد' : '<p><img class="job2" src="./assets/clipart/189061.png"><a href="profile.php?id=' + JsonArray[i].user_id + '">' + JsonArray[i].firstName + ' ' + JsonArray[i].lastName) +
+                    '</a><img class="job3" src="./assets/clipart/circular-clock.png">' + getFormattedDate(date) +
                     '<img class="job3" src="./assets/clipart/counterclockwise-rotating-arrow-around-a-clock.png">' + (JsonArray[i].firstName == undefined ? 'في مرحلة تقديم العروض' : (JsonArray[i].completed == 1 ? 'منتهي التنفيذ' : ('قيد التنفيذ'))) +
                     '</p></div><hr>');
             }
@@ -145,10 +145,10 @@ function loadWorkedProjects(id, page) {
             $('#worked-projects-holder').html("");
             for (var i = 0; i < JsonArray.length - 3; i++) {
                 date = new Date(JsonArray[i].created_at);
-                $('#worked-projects-holder').append('<div><p class=\"lii\">' +
+                $('#worked-projects-holder').append('<div><a class=\"lii\" href ="project.php?fid=2&id=' + JsonArray[i].proj_id + '">' +
                     JsonArray[i].name +
-                    '</p><p><img class="job2" src="./assets/clipart/189061.png">' + JsonArray[i].firstName + ' ' + JsonArray[i].lastName +
-                    '<img class="job3" src="./assets/clipart/circular-clock.png">' + getFormattedDate(date) +
+                    '</a><p><img class="job2" src="./assets/clipart/189061.png"><a href="profile.php?id=' + JsonArray[i].owner_id + '">' + JsonArray[i].firstName + ' ' + JsonArray[i].lastName +
+                    '</a><img class="job3" src="./assets/clipart/circular-clock.png">' + getFormattedDate(date) +
                     '<img class="job3" src="./assets/clipart/counterclockwise-rotating-arrow-around-a-clock.png">' + (JsonArray[i].completed == 1 ? 'منتهي التنفيذ' : ('قيد التنفيذ')) +
                     '</p></div><hr>');
             }
