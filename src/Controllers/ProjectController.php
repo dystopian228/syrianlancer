@@ -388,7 +388,7 @@
         if (!$conn) {
                 die("Connection Failed: " . mysqli_connect_error());
         } else {
-            $sqlc = "select distinct projects.id as proj_id, projects.name, projects.created_at, projects.category, freelancer_projects.completed as completed,
+            $sqlc = "SELECT distinct projects.id as proj_id, projects.name, projects.created_at, projects.category, freelancer_projects.completed as completed,
             (SELECT count(*) from offers where offers.project_id = proj_id) as offerCount,
             (select distinct offers.id from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0) as offer_id,
             (select DISTINCT users.first_name from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0 and offers.user_id = users.id) as firstName,
@@ -396,8 +396,11 @@
             (select distinct users.id from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offer_id and offers.id = offer_id and users.id = offers.user_id and freelancer_projects.dropped=0) as user_id
             from projects, freelancer_projects, offers
             where projects.deleted=0
-            and projects.owner_id=?
-            and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0";
+            and projects.owner_id= ?
+            and freelancer_projects.offer_id = offers.id
+            and offers.user_id = user_id
+            and offers.project_id = projects.id
+            and freelancer_projects.dropped=0";
 
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sqlc)) {
@@ -428,7 +431,10 @@
                     from projects, freelancer_projects, offers
                     where projects.deleted=0
                     and projects.owner_id= ?
-                    and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0
+                    and freelancer_projects.offer_id = offers.id
+                    and offers.user_id = user_id
+                    and offers.project_id = projects.id
+                    and freelancer_projects.dropped=0
                     ORDER BY projects.created_at desc
                     LIMIT ". $this_page_first_result . ", " . $results_per_page;
                 }
