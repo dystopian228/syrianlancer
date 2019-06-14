@@ -230,7 +230,7 @@ $(function () {
 			_price = false;
 		}
 
-		if (offerText.trim().length < 80) {
+		if (offerText.trim().length < 80 || offer.trim().length > 500) {
 			$('#text-error').html('يجب ان يكون طول النص غلى الأقل 80 محرف.');
 			_offerText = false;
 		}

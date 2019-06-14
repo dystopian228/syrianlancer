@@ -17,14 +17,21 @@ if($fid==2){
 function loadUser() {
     global $conn;
 
+    $id;
+    if(isset($_GET['id']))
+        $id = $_GET['id'];
+    else
+        $id = $_SESSION['userID'];
+
     if(!$conn)
     {
         die("Connection Failed: " . mysqli_connect_error());
     }
     else{
-        $sql = 'select first_name, last_name, gender, birth_date, main_focus, isfreelancer, image, country_id 
-        from users
-        where users.id='. $_SESSION['userID'];
+        $sql = 'select first_name, last_name, gender, birth_date, about_me, main_focus, isfreelancer, image, country_id, countries.name as country 
+        from users, countries
+        where users.id='. $id .
+        ' and countries.id = users.country_id';
         $result = mysqli_query($conn,$sql);
         $arr = array() ;
         

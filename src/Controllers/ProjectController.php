@@ -17,6 +17,12 @@
     if($fid==3){
         postOffer();
     }
+    if($fid==4){
+        loadOwnedProjects();
+    }
+    if($fid==5){
+        loadWorkedProjects();
+    }
 
     function loadProjects(){
         global $conn;
@@ -368,5 +374,167 @@
             mysqli_close($conn);
         } 
         echo json_encode($arr);
-    } 
+    }
+    
+    
+    
+    function loadOwnedProjects(){
+        global $conn;
+
+        $results_per_page=10;
+        $num_of_links=2;
+        $user_id = $_GET['id'];
+        
+        if (!$conn) {
+                die("Connection Failed: " . mysqli_connect_error());
+        } else {
+            $sqlc = "select distinct projects.id as proj_id, projects.name, projects.created_at, projects.category, freelancer_projects.completed as completed,
+            (SELECT count(*) from offers where offers.project_id = proj_id) as offerCount,
+            (select distinct offers.id from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0) as offer_id,
+            (select DISTINCT users.first_name from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0 and offers.user_id = users.id) as firstName,
+            (select DISTINCT users.last_name from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0 and offers.user_id = users.id) as lastName,
+            (select distinct users.id from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offer_id and offers.id = offer_id and users.id = offers.user_id and freelancer_projects.dropped=0) as user_id
+            from projects, freelancer_projects, offers
+            where projects.deleted=0
+            and projects.owner_id=?
+            and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0";
+
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sqlc)) {
+                    die("Connection Failed: " . $stmt->error);        
+                } else {
+                    mysqli_stmt_bind_param($stmt, "i", $user_id);
+                    mysqli_stmt_execute($stmt);
+                    $result=mysqli_stmt_get_result($stmt);
+
+                    $number_of_results = mysqli_num_rows($result);
+                    $number_of_pages = ceil($number_of_results/$results_per_page);
+
+                    if(!isset($_GET['page'])) {
+                        $page = 1;
+                    } else {
+                        $page = $_GET['page'];
+                    }
+
+                    $this_page_first_result = ($page-1)*$results_per_page;
+
+
+                    $sql = "SELECT distinct projects.id as proj_id, projects.name, projects.created_at, projects.category, freelancer_projects.completed as completed,
+                    (SELECT count(*) from offers where offers.project_id = proj_id) as offerCount,
+                    (select distinct offers.id from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0) as offer_id,
+                    (select DISTINCT users.first_name from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0 and offers.user_id = users.id) as firstName,
+                    (select DISTINCT users.last_name from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0 and offers.user_id = users.id) as lastName,
+                    (select distinct users.id from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offer_id and offers.id = offer_id and users.id = offers.user_id and freelancer_projects.dropped=0) as user_id
+                    from projects, freelancer_projects, offers
+                    where projects.deleted=0
+                    and projects.owner_id= ?
+                    and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0
+                    ORDER BY projects.created_at desc
+                    LIMIT ". $this_page_first_result . ", " . $results_per_page;
+                }
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    die("Connection Failed: " . $stmt->error);        
+                } else {
+                    mysqli_stmt_bind_param($stmt, "i", $user_id);
+                    mysqli_stmt_execute($stmt);
+                    $result=mysqli_stmt_get_result($stmt);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result) ) {
+                            $arr[]=$row;
+                        }
+                    }
+                    $arr[]=$number_of_pages;
+                    $start=(($page - $num_of_links) > 0) ? $page-$num_of_links : 1;
+                    $end=(($page + $num_of_links) < $number_of_pages) ? $page+$num_of_links : $number_of_pages;
+                    $arr[]=$start;
+                    $arr[]=$end;
+                    // $resp->arr=$arr;
+                    // $resp->pages=$number_of_pages;
+                    echo json_encode($arr);
+                }
+            }
+            mysqli_close($conn);
+        }
+
+        function loadWorkedProjects() {
+            global $conn;
+
+        $results_per_page=10;
+        $num_of_links=2;
+        $user_id = $_GET['id'];
+        
+        if (!$conn) {
+                die("Connection Failed: " . mysqli_connect_error());
+        } else {
+            $sqlc = "SELECT projects.id as proj_id, projects.name, projects.category, projects.created_at,
+            (select users.first_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as firstName,
+            (select users.last_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as lastName,
+            freelancer_projects.completed
+                        from projects, users, freelancer_projects, offers
+                        where projects.deleted=0
+                        and users.id=?
+                        and offers.project_id = projects.id
+                        and offers.id = freelancer_projects.offer_id
+                        and offers.user_id = users.id
+                        and freelancer_projects.dropped=0";
+
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sqlc)) {
+                    die("Connection Failed: " . $stmt->error);        
+                } else {
+                    mysqli_stmt_bind_param($stmt, "i", $user_id);
+                    mysqli_stmt_execute($stmt);
+                    $result=mysqli_stmt_get_result($stmt);
+
+                    $number_of_results = mysqli_num_rows($result);
+                    $number_of_pages = ceil($number_of_results/$results_per_page);
+
+                    if(!isset($_GET['page'])) {
+                        $page = 1;
+                    } else {
+                        $page = $_GET['page'];
+                    }
+
+                    $this_page_first_result = ($page-1)*$results_per_page;
+
+
+                    $sql = "SELECT projects.id as proj_id, projects.name, projects.category, projects.created_at,
+                    (select users.first_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as firstName,
+                    (select users.last_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as lastName,
+                    freelancer_projects.completed
+                                from projects, users, freelancer_projects, offers
+                                where projects.deleted=0
+                                and users.id=?
+                                and offers.project_id = projects.id
+                                and offers.id = freelancer_projects.offer_id
+                                and offers.user_id = users.id
+                                and freelancer_projects.dropped=0
+                                ORDER BY projects.created_at desc
+                                LIMIT ". $this_page_first_result . ", " . $results_per_page;
+                }
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    die("Connection Failed: " . $stmt->error);        
+                } else {
+                    mysqli_stmt_bind_param($stmt, "i", $user_id);
+                    mysqli_stmt_execute($stmt);
+                    $result=mysqli_stmt_get_result($stmt);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result) ) {
+                            $arr[]=$row;
+                        }
+                    }
+                    $arr[]=$number_of_pages;
+                    $start=(($page - $num_of_links) > 0) ? $page-$num_of_links : 1;
+                    $end=(($page + $num_of_links) < $number_of_pages) ? $page+$num_of_links : $number_of_pages;
+                    $arr[]=$start;
+                    $arr[]=$end;
+                    echo json_encode($arr);
+                }
+            }
+            mysqli_close($conn);
+        }
 ?>

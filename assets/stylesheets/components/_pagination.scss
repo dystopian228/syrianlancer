@@ -1,4 +1,4 @@
-.page-link {
+.owned-page-link {
     position: relative;
     display: block;
     padding: .5rem .75rem;
@@ -9,7 +9,7 @@
     border: 1px solid $secondary !important;
 }
 
-.page-item.active .page-link {
+.owned-page-item.active .owned-page-link {
     z-index: 1;
     color: $dark-black !important;
     background-color: $primary !important;
@@ -17,18 +17,18 @@
     box-shadow: $primary !important;
 }
 
-.page-link:hover {
+.owned-page-link:hover {
     color: $dark-black !important;
     text-decoration: none !important;
     background-color: $secondary !important;
     border-color: $primary !important;
 }
 
-.page-link:focus {
+.owned-page-link:focus {
     box-shadow: 0 0 0 0.2rem $primary-shadow !important;
 }
 
-.page-item.disabled .page-link {
+.owned-page-item.disabled .owned-page-link {
     color: $secondary !important;
     pointer-events: none;
     cursor: auto;
@@ -36,14 +36,68 @@
     border-color: #dee2e6 !important;
 }
 
-.page-item:first-child .page-link {
+.owned-page-item:first-child .owned-page-link {
     border-top-right-radius: .25rem;
     border-bottom-right-radius: .25rem;
     border-top-left-radius: 0rem;
     border-bottom-left-radius: 0rem;
 }
 
-.page-item:last-child .page-link {
+.owned-page-item:last-child .owned-page-link {
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+
+/* */
+
+.work-page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: $primary;
+    background-color: #fff;
+    border: 1px solid $secondary !important;
+}
+
+.work-page-item.active .work-page-link {
+    z-index: 1;
+    color: $dark-black !important;
+    background-color: $primary !important;
+    border-color: $primary-dark !important;
+    box-shadow: $primary !important;
+}
+
+.work-page-link:hover {
+    color: $dark-black !important;
+    text-decoration: none !important;
+    background-color: $secondary !important;
+    border-color: $primary !important;
+}
+
+.work-page-link:focus {
+    box-shadow: 0 0 0 0.2rem $primary-shadow !important;
+}
+
+.work-page-item.disabled .work-page-link {
+    color: $secondary !important;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff !important;
+    border-color: #dee2e6 !important;
+}
+
+.work-page-item:first-child .work-page-link {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+}
+
+.work-page-item:last-child .work-page-link {
     border-top-right-radius: 0rem;
     border-bottom-right-radius: 0rem;
     border-top-left-radius: .25rem;
