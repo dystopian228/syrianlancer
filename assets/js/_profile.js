@@ -61,6 +61,7 @@ function loadProfile(id) {
 }
 
 function loadOwnedProjects(id, page, _owner) {
+    alert(_owner);
     $.ajax({
         type: 'GET',
         url: 'src/Controllers/ProjectController.php',
@@ -136,6 +137,7 @@ function loadOwnedProjects(id, page, _owner) {
 }
 
 function loadWorkedProjects(id, page, _owner) {
+    alert(_owner);
     $.ajax({
         type: 'GET',
         url: 'src/Controllers/ProjectController.php',
