@@ -1269,4 +1269,17 @@ textarea.form-control {
   background-color: #f3f1e3;
   padding: 4vw;
 }
+
+.dashboard-main {
+  direction: rtl;
+  text-align: right;
+}
+
+.dashboard-panel {
+  background-color: #f3f1e3;
+  margin-left: 55px;
+  margin-right: 55px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 /*# sourceMappingURL=main.css.map */
