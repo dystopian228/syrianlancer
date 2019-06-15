@@ -80,7 +80,7 @@ function loadOwnedProjects(id, page, _owner) {
                     '</a>' + (JsonArray[i].firstName == undefined ? '<p><img class="job2" src="./assets/clipart/189061.png">لا يوجد' : '<p><img class="job2" src="./assets/clipart/189061.png"><a href="profile.php?id=' + JsonArray[i].user_id + '">' + JsonArray[i].firstName + ' ' + JsonArray[i].lastName) +
                     '</a><img class="job3" src="./assets/clipart/circular-clock.png">' + getFormattedDate(date) +
                     '<img class="job3" src="./assets/clipart/counterclockwise-rotating-arrow-around-a-clock.png">' + (JsonArray[i].firstName == undefined ? 'في مرحلة تقديم العروض' : (JsonArray[i].completed == 1 ? 'منتهي التنفيذ' : ('قيد التنفيذ'))) +
-                    '</p></div><div class="d-flex col-sm-2 pull-left justify-content-center align-self-center">' + (_owner == true ? '<button onclick="location.href = \'chat.php?freelancer_projects=' + JsonArray[i].freelancer_projects_id + '\'" class="btn btn-primary ripple pull-left mb-2"><i class="fas fa-envelope"></i></button>' : '') + '</div></div><hr>');
+                    '</p></div><div class="d-flex col-sm-2 pull-left justify-content-center align-self-center">' + (_owner == true && JsonArray[i].freelancer_projects_id != undefined ? '<button onclick="location.href = \'chat.php?freelancer_projects=' + JsonArray[i].freelancer_projects_id + '\'" class="btn btn-primary ripple pull-left mb-2"><i class="fas fa-envelope"></i></button>' : '') + '</div></div><hr>');
             }
             if (JsonArray.length > 3) {
                 var pagination = document.getElementById("owned-project-pages");
@@ -155,7 +155,7 @@ function loadWorkedProjects(id, page, _owner) {
                     '</a><p><img class="job2" src="./assets/clipart/189061.png"><a href="profile.php?id=' + JsonArray[i].owner_id + '">' + JsonArray[i].firstName + ' ' + JsonArray[i].lastName +
                     '</a><img class="job3" src="./assets/clipart/circular-clock.png">' + getFormattedDate(date) +
                     '<img class="job3" src="./assets/clipart/counterclockwise-rotating-arrow-around-a-clock.png">' + (JsonArray[i].completed == 1 ? 'منتهي التنفيذ' : ('قيد التنفيذ')) +
-                    '</p></div><div class="d-flex col-sm-2 pull-left justify-content-center align-self-center">' + (_owner == true ? '<button onclick="location.href = \'chat.php?freelancer_projects=' + JsonArray[i].freelancer_projects_id + '\'" class="btn btn-primary ripple pull-left mb-2"><i class="fas fa-envelope"></i></button>' : '') + '</div></div><hr>');
+                    '</p></div><div class="d-flex col-sm-2 pull-left justify-content-center align-self-center">' + (_owner == true && JsonArray[i].freelancer_projects_id != undefined ? '<button onclick="location.href = \'chat.php?freelancer_projects=' + JsonArray[i].freelancer_projects_id + '\'" class="btn btn-primary ripple pull-left mb-2"><i class="fas fa-envelope"></i></button>' : '') + '</div></div><hr>');
             }
             if (JsonArray.length > 3) {
                 var pagination = document.getElementById("worked-project-pages");
