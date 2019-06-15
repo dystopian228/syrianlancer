@@ -27,15 +27,17 @@ function loadProfile(id) {
             category = getCategory(JsonObject.category);
             $('#profile-category').html(category);
             $('#profile-country').html(JsonObject.country);
+            var _owner = false;
             if (JsonObject.about_me != null)
                 $('#profile-description').html(JsonObject.about_me);
             else
                 $('#profile-description').html('لا يوجد بيانات');
             if (id == JsonObject.id) {
-                $('#edit-profile-col').html('<button id="edit-profile" onclick="location.href=\'edit_profile.php\'" class="btn btn-primary ripple pull-left w-50 mb-2">تعديل المعلومات</button>');
+                _owner = true;
+                $('#edit-profile-col').html('<button id="edit-profile" onclick="window.location.href=\'edit_profile.php\'" class="btn btn-primary ripple pull-left w-50 mb-2">تعديل المعلومات</button>');
             }
-            loadOwnedProjects(id, 1);
-            loadWorkedProjects(id, 1);
+            loadOwnedProjects(id, 1, _owner);
+            loadWorkedProjects(id, 1, _owner);
         },
         ferror: function (jqXHR, exception) {
             var msg = '';
@@ -58,7 +60,7 @@ function loadProfile(id) {
     })
 }
 
-function loadOwnedProjects(id, page) {
+function loadOwnedProjects(id, page, _owner) {
     $.ajax({
         type: 'GET',
         url: 'src/Controllers/ProjectController.php',
@@ -73,12 +75,12 @@ function loadOwnedProjects(id, page) {
             $('#owned-projects-holder').html("");
             for (var i = 0; i < JsonArray.length - 3; i++) {
                 date = new Date(JsonArray[i].created_at);
-                $('#owned-projects-holder').append('<div><a class=\"lii\" href ="project.php?fid=2&id=' + JsonArray[i].proj_id + '">' +
+                $('#owned-projects-holder').append('<div class="row"><div class="col-sm-10"><a class=\"lii\" href ="project.php?fid=2&id=' + JsonArray[i].proj_id + '">' +
                     JsonArray[i].name +
                     '</a>' + (JsonArray[i].firstName == undefined ? '<p><img class="job2" src="./assets/clipart/189061.png">لا يوجد' : '<p><img class="job2" src="./assets/clipart/189061.png"><a href="profile.php?id=' + JsonArray[i].user_id + '">' + JsonArray[i].firstName + ' ' + JsonArray[i].lastName) +
                     '</a><img class="job3" src="./assets/clipart/circular-clock.png">' + getFormattedDate(date) +
                     '<img class="job3" src="./assets/clipart/counterclockwise-rotating-arrow-around-a-clock.png">' + (JsonArray[i].firstName == undefined ? 'في مرحلة تقديم العروض' : (JsonArray[i].completed == 1 ? 'منتهي التنفيذ' : ('قيد التنفيذ'))) +
-                    '</p></div><hr>');
+                    '</p></div><div class="d-flex col-sm-2 pull-left justify-content-center align-self-center">' + (_owner == true ? '<button onclick="location.href = \'chat.php?freelancer_projects=' + JsonArray[i].freelancer_projects_id + '\'" class="btn btn-primary ripple pull-left mb-2"><i class="fas fa-envelope"></i></button>' : '') + '</div></div><hr>');
             }
             if (JsonArray.length > 3) {
                 var pagination = document.getElementById("owned-project-pages");
@@ -133,7 +135,7 @@ function loadOwnedProjects(id, page) {
     })
 }
 
-function loadWorkedProjects(id, page) {
+function loadWorkedProjects(id, page, _owner) {
     $.ajax({
         type: 'GET',
         url: 'src/Controllers/ProjectController.php',
@@ -148,12 +150,12 @@ function loadWorkedProjects(id, page) {
             $('#worked-projects-holder').html("");
             for (var i = 0; i < JsonArray.length - 3; i++) {
                 date = new Date(JsonArray[i].created_at);
-                $('#worked-projects-holder').append('<div><a class=\"lii\" href ="project.php?fid=2&id=' + JsonArray[i].proj_id + '">' +
+                $('#worked-projects-holder').append('<div class="row"><div class="col-sm-10"><a class=\"lii\" href ="project.php?fid=2&id=' + JsonArray[i].proj_id + '">' +
                     JsonArray[i].name +
                     '</a><p><img class="job2" src="./assets/clipart/189061.png"><a href="profile.php?id=' + JsonArray[i].owner_id + '">' + JsonArray[i].firstName + ' ' + JsonArray[i].lastName +
                     '</a><img class="job3" src="./assets/clipart/circular-clock.png">' + getFormattedDate(date) +
                     '<img class="job3" src="./assets/clipart/counterclockwise-rotating-arrow-around-a-clock.png">' + (JsonArray[i].completed == 1 ? 'منتهي التنفيذ' : ('قيد التنفيذ')) +
-                    '</p></div><hr>');
+                    '</p></div><div class="d-flex col-sm-2 pull-left justify-content-center align-self-center">' + (_owner == true ? '<button onclick="location.href = \'chat.php?freelancer_projects=' + JsonArray[i].freelancer_projects_id + '\'" class="btn btn-primary ripple pull-left mb-2"><i class="fas fa-envelope"></i></button>' : '') + '</div></div><hr>');
             }
             if (JsonArray.length > 3) {
                 var pagination = document.getElementById("worked-project-pages");

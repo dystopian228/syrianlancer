@@ -7,7 +7,6 @@ function loadProject(id) {
 		datatype: 'text',
 		data: 'fid=2&id=' + id,
 		success: function (response) {
-			alert(response);
 			var JsonArray = $.parseJSON(response);
 			project_id = JsonArray[0].id;
 			var project_category;
@@ -220,7 +219,6 @@ function chooseOffer(user_id) {
 		datatype: 'text',
 		data: 'fid=6&id=' + project_id + "&user=" + user_id,
 		success: function (response) {
-			alert(response);
 			var JsonObj = $.parseJSON(response);
 			location.href = 'chat.php?freelancer_projects=' + JsonObj.freelancer_projects_id;
 		},

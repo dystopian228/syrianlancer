@@ -392,6 +392,7 @@
         } else {
             $sqlc = "SELECT distinct projects.id as proj_id, projects.name, projects.created_at, projects.category, 
             (SELECT distinct freelancer_projects.completed from freelancer_projects, projects, offers where freelancer_projects.offer_id = offers.id and offers.project_id = proj_id and freelancer_projects.dropped=0) as completed,
+            (SELECT distinct freelancer_projects.id from freelancer_projects, projects, offers where freelancer_projects.offer_id = offers.id and offers.project_id = proj_id and freelancer_projects.dropped=0) as freelancer_projects_id,
                         (SELECT count(*) from offers where offers.project_id = proj_id) as offerCount,
                         (select distinct offers.id from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0) as offer_id,
                         (select DISTINCT users.first_name from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0 and offers.user_id = users.id) as firstName,
@@ -425,6 +426,7 @@
 
                     $sql = "SELECT distinct projects.id as proj_id, projects.name, projects.created_at, projects.category, 
                     (SELECT distinct freelancer_projects.completed from freelancer_projects, projects, offers where freelancer_projects.offer_id = offers.id and offers.project_id = proj_id and freelancer_projects.dropped=0) as completed,
+                    (SELECT distinct freelancer_projects.id from freelancer_projects, projects, offers where freelancer_projects.offer_id = offers.id and offers.project_id = proj_id and freelancer_projects.dropped=0) as freelancer_projects_id,
                                 (SELECT count(*) from offers where offers.project_id = proj_id) as offerCount,
                                 (select distinct offers.id from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0) as offer_id,
                                 (select DISTINCT users.first_name from users, offers, freelancer_projects where offers.project_id=proj_id and freelancer_projects.offer_id = offers.id and freelancer_projects.dropped=0 and offers.user_id = users.id) as firstName,
@@ -478,7 +480,7 @@
             (select users.first_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as firstName,
             (select users.last_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as lastName,
             (select users.id from users, projects where projects.id=proj_id and projects.owner_id = users.id) as owner_id,
-            freelancer_projects.completed
+            freelancer_projects.completed, freelancer_projects.id as freelancer_projects_id
                         from projects, users, freelancer_projects, offers
                         where projects.deleted=0
                         and users.id=?
@@ -511,7 +513,7 @@
                     (select users.first_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as firstName,
                     (select users.last_name from users, projects where projects.id=proj_id and projects.owner_id = users.id) as lastName,
                     (select users.id from users, projects where projects.id=proj_id and projects.owner_id = users.id) as owner_id,
-                    freelancer_projects.completed
+                    freelancer_projects.completed, freelancer_projects.id as freelancer_projects_id
                                 from projects, users, freelancer_projects, offers
                                 where projects.deleted=0
                                 and users.id=?

@@ -35,10 +35,9 @@ else {
 
 </div>
 
-
 <div id="Profaile" class="tabcontent">
 
-    <form class="profile-forms">
+    <div class="profile-forms">
         <div class="pr">
             <h3 class="profile-section"> <img class="job1" src="./assets/clipart/1006517.png">تعريف بي:</h3>
             <hr>
@@ -46,28 +45,29 @@ else {
             <br>
             </h4>
         </div>
-    </form>
+</div>
 </div>
 
 <div id="projectA" class="tabcontent">
-    <form class="profile-forms">
+    <div class="profile-forms">
         <div class="pr">
             <h3 class="profile-section"><img class="job1" src="./assets/clipart/decision.png">المشاريع التي شارك بها:</h3>
             <hr>
             <div id="worked-projects-holder">
+                
             </div>
             <nav aria-label="Page navigation example">
                 <ul class="pagination d-flex justify-content-end" id="worked-project-pages">
                 </ul>
             </nav>
         </div>
-    </form>
+</div>
 
 </div>
 
 <div id="projectB" class="tabcontent">
 
-    <form class="profile-forms">
+    <div class="profile-forms">
         <div class="pr">
             <h3 class="profile-section"><img class="job1" src="./assets/clipart/Business_Ideas-128.png">المشاريع التي طرحها:</h3>
             <hr>
@@ -78,7 +78,7 @@ else {
                 </ul>
             </nav>
         </div>
-    </form>
+    </div>
 </div>
 
 
