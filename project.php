@@ -93,6 +93,24 @@ if(!isset($_GET['id'])){
             <hr class="mb-5">
         </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="offerModal" tabindex="-1" role="dialog" aria-labelledby="offerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title pull-right" id="offerModalLabel">هل أنت متأكد من اختيارك؟</h5>
+            <button type="button" class="close pull-left" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal">اغلق</button>
+            <button type="button" class="btn btn-primary" id="confirm-offer">متأكد</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
     </div>
 </main>
 

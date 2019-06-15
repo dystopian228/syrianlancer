@@ -279,6 +279,23 @@ h5 {
   border-color: #ebc700;
 }
 
+.btn-secondary {
+  border-radius: 0px;
+}
+
+.btn-secondary.focus,
+.btn-secondary:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .btn-danger {
   background-color: #dc3545;
   border-color: #dc3545;
@@ -393,6 +410,7 @@ h5 {
   font-weight: 200;
 }
 
+/* black opacity */
 /* textbox customization */
 input[type=text]:focus:not([readonly]),
 input[type=password]:focus:not([readonly]),
@@ -1009,8 +1027,42 @@ textarea.form-control {
 
 .project-banner {
   height: 16vw;
-  background: url("../images/computers.png") center;
   color: #f3f1e3;
+}
+
+.business {
+  background: url("../images/business.jpg") center;
+  background-size: cover;
+}
+
+.design {
+  background: url("../images/design.jpg") center;
+  background-size: cover;
+}
+
+.marketing {
+  background: url("../images/marketing.jpg") center;
+  background-size: cover;
+}
+
+.programming {
+  background: url("../images/programming.jpg") center;
+  background-size: cover;
+}
+
+.language {
+  background: url("../images/language.jpg") center;
+  background-size: cover;
+}
+
+.other {
+  background: url("../images/other.jpg") center;
+  background-size: cover;
+}
+
+.training {
+  background: url("../images/training.jpg") center;
+  background-size: cover;
 }
 
 .project-card:hover {
@@ -1018,6 +1070,14 @@ textarea.form-control {
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
   cursor: pointer;
+}
+
+.black-badge {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 16vw;
 }
 
 .project-main {
@@ -1045,6 +1105,11 @@ textarea.form-control {
 
 .project-main .card {
   background-color: #f3f1e3;
+}
+
+.modal-header .close {
+  padding: 1rem;
+  margin: -1rem -1rem -1rem;
 }
 
 .freelancers-main {

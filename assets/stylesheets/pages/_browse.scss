@@ -10,9 +10,45 @@
 
 .project-banner {
     height: 16vw;
-    background: url('../images/computers.png') center;
     color: $light-grey;
 }
+
+.business {
+    background: url('../images/business.jpg') center;
+    background-size: cover;
+}
+
+.design {
+    background: url('../images/design.jpg') center;
+    background-size: cover;
+}
+
+
+.marketing {
+    background: url('../images/marketing.jpg') center;
+    background-size: cover;
+}
+
+.programming {
+    background: url('../images/programming.jpg') center;
+    background-size: cover;
+}
+
+.language {
+    background: url('../images/language.jpg') center;
+    background-size: cover;
+}
+
+.other {
+    background: url('../images/other.jpg') center;
+    background-size: cover;
+}
+
+.training {
+    background: url('../images/training.jpg') center;
+    background-size: cover;
+}
+
 
 .project-card:hover {
     -webkit-filter: brightness(90%);
@@ -22,4 +58,12 @@
     -ms-transition: all 1s ease;
     transition: all 1s ease;
     cursor: pointer;
+}
+
+.black-badge {
+    background-color: rgba($color: (#000000), $alpha: 0.6);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 16vw;
 }

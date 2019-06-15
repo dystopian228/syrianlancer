@@ -92,6 +92,23 @@
     border-color: $primary-dark;
 }
 
+//btn-secondary
+
+.btn-secondary {
+    border-radius: 0px;
+}
+
+.btn-secondary.focus,
+.btn-secondary:focus {
+    box-shadow: none;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-secondary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
 //btn-danger
 
 .btn-danger {

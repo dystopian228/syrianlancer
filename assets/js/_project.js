@@ -7,6 +7,7 @@ function loadProject(id) {
 		datatype: 'text',
 		data: 'fid=2&id=' + id,
 		success: function (response) {
+			alert(response);
 			var JsonArray = $.parseJSON(response);
 			project_id = JsonArray[0].id;
 			var project_category;
@@ -69,9 +70,9 @@ function loadProject(id) {
 						' ' +
 						JsonArray[i].last_name +
 						'</h5></div><div class="col-sm-2 pull-sm-2">' +
-						(JsonArray[0].completed == null ? '<button id="choose' +
-							i +
-							'"class="btn btn-primary ripple pull-left w-100 mb-2">اختر هذا العرض</button>' : '') +
+						(JsonArray[0].completed == null ? '<button id="' +
+							JsonArray[i].user_id +
+							'"class="btn btn-primary ripple pull-left w-100 mb-2 choose-off">اختر هذا العرض</button>' : '') +
 						'<button id="report' +
 						i +
 						'"class="btn btn-danger ripple pull-left w-100">تبليغ عن العرض</button></div></div><h6 class="card-subtitle mb-2 ml-2 text-muted"><small id="created-at-' +
@@ -172,6 +173,56 @@ function loadProject(id) {
 				$('#offers-holder').append('<h4 class="text-center font-weight-bold">لا يوجد اية عروض</h4>');
 			if (JsonArray[0].owner == 1 || JsonArray[0].completed != null) $('#add-offer-card').remove();
 			$('#cover').removeClass('invisible');
+			$(function () {
+				$('#edit-project').on('click', function () {
+					location.href = 'edit_project.php?fid=4&id=' + project_id;
+				});
+			});
+			$(function () {
+				$('.choose-off').on('click', function () {
+					let id = this.id;
+					$('#confirm-offer').attr("value", id);
+					$('#offerModal').modal('show');
+				});
+			});
+			$(function () {
+				$('#confirm-offer').on('click', function () {
+					chooseOffer(this.value);
+				});
+			});
+		},
+		error: function (jqXHR, exception) {
+			var msg = '';
+			if (jqXHR.status === 0) {
+				msg = 'Not connect.\n Verify Network.';
+			} else if (jqXHR.status == 404) {
+				msg = 'Requested page not found. [404]';
+			} else if (jqXHR.status == 500) {
+				msg = 'Internal Server Error [500].';
+			} else if (exception === 'parsererror') {
+				msg = 'Requested JSON parse failed.';
+			} else if (exception === 'timeout') {
+				msg = 'Time out error.';
+			} else if (exception === 'abort') {
+				msg = 'Ajax request aborted.';
+			} else {
+				msg = 'Uncaught Error.\n' + jqXHR.responseText;
+			}
+			alert(msg);
+		}
+	});
+}
+
+function chooseOffer(user_id) {
+	$.ajax({
+		type: 'POST',
+		url: 'src/Controllers/ProjectController.php',
+		datatype: 'text',
+		data: 'fid=6&id=' + project_id + "&user=" + user_id,
+		success: function (response) {
+			alert(response);
+			var JsonObj = $.parseJSON(response);
+			location.href = 'chat.php?freelancer_projects=' + JsonObj.freelancer_projects_id;
 		},
 		error: function (jqXHR, exception) {
 			var msg = '';
@@ -210,13 +261,7 @@ $(function () {
 		$('#revenue').val(price * 0.1);
 	});
 });
-$(document).ready(function () {
-	$(function () {
-		$('#edit-project').on('click', function () {
-			location.href = 'edit_project.php?fid=4&id=' + project_id;
-		});
-	});
-});
+
 
 $(function () {
 	$('#add-offer').on('click', function () {
@@ -239,8 +284,8 @@ $(function () {
 			_price = false;
 		}
 
-		if (offerText.trim().length < 80 || offerText.trim().length > 500) {
-			$('#text-error').html(' ويجب ان يكون طول النص غلى الأقل 80 محرف و 500 على الأكثر.');
+		if (offerText.trim().length < 80 || offerText.trim().length > 1500) {
+			$('#text-error').html(' ويجب ان يكون طول النص غلى الأقل 80 محرف و 1500 على الأكثر.');
 			_offerText = false;
 		}
 

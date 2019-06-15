@@ -23,6 +23,9 @@
     if($fid==5){
         loadWorkedProjects();
     }
+    if($fid==6){
+        chooseOffer();
+    }
 
     function loadProjects(){
         global $conn;
@@ -542,4 +545,35 @@
             }
             mysqli_close($conn);
         }
+
+        function chooseOffer() {
+            global $conn;
+
+            $project_id = $_POST['id'];
+            $user_id = $_POST['user'];
+            $arr=array();
+            if (!$conn) {
+                die("Connection Failed: " . mysqli_connect_error());
+            } else {
+                $sql="INSERT INTO freelancer_projects (completed, dropped, created_at, finished_at, notes, rating, offer_id) VALUES (?, ?, ?, ?, ?, ?, (SELECT distinct offers.id from offers, projects where offers.project_id=? and offers.user_id=? and offers.deleted=0))";
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    die("Connection Failed: " . mysqli_stmt_error($stmt));
+                } else {
+                    $dateNow=date("Y-m-d H:i:s");
+                    $completed=0;
+                    $notes="";
+                    $rating="0";
+                    mysqli_stmt_bind_param($stmt, "iisssiii", $completed, $completed, $dateNow, $dateNow, $notes, $rating, $project_id, $user_id);
+                    mysqli_stmt_execute($stmt) or die($stmt->error);;
+                    $last_id = $conn->insert_id;
+                    $arr['freelancer_projects_id'] = $last_id;
+                    $arr['success']=mysqli_stmt_error($stmt);
+                    $arr['success'] = '1';
+                    echo json_encode($arr);
+                }
+                mysqli_stmt_close($stmt);
+            }
+        mysqli_close($conn);
+    }
 ?>

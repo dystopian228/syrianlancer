@@ -1,7 +1,7 @@
 <?php
 require 'header.php';
-if(isset($_SESSION['userID'])){ 
-    header("Location: profile.php");
+if(!isset($_SESSION['userID'])){ 
+    header("Location: signup.php");
 }
 ?>
 <main class="addProject-main">
