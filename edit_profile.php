@@ -12,7 +12,7 @@ if(!isset($_SESSION['userID'])){
         </div>
         <div class="image-upload center">
             <label for="image-input">
-                <img id="profile-avatar" src="" class="profile-img cent mb-5">
+                <img id="profile-avatar" src="" class="profile-img cent mb-5" onerror="this.src='./assets/images/placeholder.png'">
             </label>
             <input type="file" name="image" id="image-input">
         </div>
