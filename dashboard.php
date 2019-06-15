@@ -8,14 +8,14 @@ include 'header.php';
 
     <div class="row mx-5 mt-5 ">
 
-        <div class="col-md card m-2 p-2 dashboard-panel">
+        <div class="col-md card m-3 p-4 dashboard-panel">
 
             <h1>الرصيد المتوفر</h1>
             <hr>
             <h1 class="text-center"><span id="available-balance">0</span>$</h1>
         </div>
 
-        <div class="col-md card m-2 p-2 dashboard-panel">
+        <div class="col-md card m-3 p-4 dashboard-panel">
 
             <h1>الرصيد المعلق</h1>
             <hr>
@@ -27,7 +27,7 @@ include 'header.php';
 
     <div class="row mx-5 mb-2 ">
 
-        <div class="col-md card m-2 p-2 dashboard-panel">
+        <div class="col-md card m-3 p-4 dashboard-panel">
 
             <h1>إضافة رصيد</h1>
             <hr>
@@ -38,7 +38,7 @@ include 'header.php';
         </div>
 
 
-        <div class="col-md card m-2 p-2 dashboard-panel">
+        <div class="col-md card m-3 p-4 dashboard-panel">
 
             <h1>سحب الرصيد المتوفر</h1>
             <hr>
@@ -54,7 +54,7 @@ include 'header.php';
     </div>
 
 
-    <div class="row card dashboard-panel  ">
+    <div class="row card dashboard-panel   ">
         <div class="p-2 l">
             <h3>عمليات التحويل السابقة </h3>
             <hr>
