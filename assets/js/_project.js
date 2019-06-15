@@ -22,10 +22,10 @@ function loadProject(id) {
 				else project_category = 'أمور أخرى';
 				if (JsonArray[0].owner == 1) {
 					$('#project-main-card').html(
-						'<div class="row"><div class="col-10 d-flex mb-3"><img id="project-avatar" src="./assets/images/placeholder.png" class="project-avatar mb-auto mt-auto ml-4"><h2 id="project-name" class="primary-dark mb-auto mt-auto"</h2></div><div class="col-sm-2 pull-sm-2">' + (JsonArray[0].completed == null ? '<button id="edit-project" class="btn btn-primary ripple pull-left w-100 mb-2">تعديل المشروع</button>' : '') + '<button id="remove-project" class="btn btn-danger ripple pull-left w-100">حذف العمل</button></div></div><div class="row"><h6 class="card-subtitle col-10 mb-2 ml-2 text-muted"><i class="fas fa-calendar-alt ml-1"></i><span id="created_at" class="ml-3"></span><i class="fas fa-user ml-1"></i><span id="owner-name" class="ml-3"></span><i class="fas fa-tags ml-1"></i><span id="project-category" class="ml-3"></span></h6></div>');
+						'<div class="row"><div class="col-10 d-flex mb-3"><img id="project-avatar" src="./assets/images/placeholder.png" class="project-avatar mb-auto mt-auto ml-4"><h2 id="project-name" class="primary-dark mb-auto mt-auto"</h2></div><div class="col-2 pull-2 justify-content-center align-self-center">' + (JsonArray[0].completed == null ? '<button id="edit-project" class="btn btn-primary ripple pull-left mw-100 ml-1"><i class="fas fa-edit"></i></button>' : '') + '<button id="remove-project" class="btn btn-danger ripple pull-left mw-100"><i class="fas fa-trash"></i></button></div></div><div class="row"><h6 class="card-subtitle col-10 mb-2 ml-2 text-muted"><i class="fas fa-calendar-alt ml-1"></i><span id="created_at" class="ml-3"></span><i class="fas fa-user ml-1"></i><span id="owner-name" class="ml-3"></span><i class="fas fa-tags ml-1"></i><span id="project-category" class="ml-3"></span></h6></div>');
 				} else {
 					$('#project-main-card').html(
-						'<div class="row"><div class="col-10 d-flex mb-3"><img id="project-avatar" src="./assets/images/placeholder.png" class="project-avatar mb-auto mt-auto ml-4"><h2 id="project-name" class="primary-dark mb-auto mt-auto"</h2></div><div class="col-sm-2 pull-sm-2"><button id="report-project" class="btn btn-danger ripple pull-left w-100">تبليغ عن العمل</button></div></div><div class="row"><h6 class="card-subtitle col-10 mb-2 ml-2 text-muted"><i class="fas fa-calendar-alt ml-1"></i><span id="created_at" class="ml-3"></span><i class="fas fa-user ml-1"></i><span id="owner-name" class="ml-3"></span><i class="fas fa-tags ml-1"></i><span id="project-category" class="ml-3"></span></h6></div>'
+						'<div class="row"><div class="col-10 d-flex mb-3"><img id="project-avatar" src="./assets/images/placeholder.png" class="project-avatar mb-auto mt-auto ml-4"><h2 id="project-name" class="primary-dark mb-auto mt-auto"</h2></div><div class="col-2 pull-2 justify-content-center align-self-center"><button id="report-project" class="btn btn-danger ripple pull-left"><i class="fas fa-flag"></i></button></div></div><div class="row"><h6 class="card-subtitle col-10 mb-2 ml-2 text-muted"><i class="fas fa-calendar-alt ml-1"></i><span id="created_at" class="ml-3"></span><i class="fas fa-user ml-1"></i><span id="owner-name" class="ml-3"></span><i class="fas fa-tags ml-1"></i><span id="project-category" class="ml-3"></span></h6></div>'
 					);
 				}
 				$('#project-name').html(JsonArray[0].name);
@@ -43,11 +43,11 @@ function loadProject(id) {
 				$('#offer-count').html(JsonArray[0].offersNum);
 				$('#description').html(JsonArray[0].description);
 				if (JsonArray[0].completed == 1) {
-					$('#project-details-header').append('<div class="col-2 pull-2"><span class="badge badge-success pull-left w-100">منتهي التنفيذ</span></div>')
+					$('#project-details-header').append('<div class="col-2 pull-2"><span class="badge badge-success pull-left mw-100">منتهي التنفيذ</span></div>')
 				} else if (JsonArray[0].completed == 0) {
-					$('#project-details-header').append('<div class="col-2 pull-2"><span class="badge badge-warning pull-left w-100">قيد التنفيذ</span></div>')
+					$('#project-details-header').append('<div class="col-2 pull-2"><span class="badge badge-warning pull-left mw-100">قيد التنفيذ</span></div>')
 				} else {
-					$('#project-details-header').append('<div class="col-2 pull-2"><span class="badge badge-info pull-left w-100">تقديم الطلبات</span></div>')
+					$('#project-details-header').append('<div class="col-2 pull-2"><span class="badge badge-info pull-left mw-100">تقديم الطلبات</span></div>')
 				}
 				var created_at;
 				for (var i = 1; i < JsonArray.length; i++) {
@@ -63,7 +63,7 @@ function loadProject(id) {
 					else mainFocus = 'أمور أخرى';
 					if (JsonArray[0].owner == 1) {
 						$('#offers-holder').append(
-							'<div class="card-text"><div class="row"><div class="col-sm-10 d-flex mb-3"><img src="' +
+							'<div class="card-text"><div class="row"><div class="col-10 d-flex mb-3"><img src="' +
 							JsonArray[i].userImage +
 							'" class="offer-avatar mb-auto mt-auto ml-4"><h5 id="freelancer-' +
 							i +
@@ -71,13 +71,13 @@ function loadProject(id) {
 							JsonArray[i].first_name +
 							' ' +
 							JsonArray[i].last_name +
-							'</h5></div><div class="col-sm-2 pull-sm-2">' +
+							'</h5></div><div class="col-2 pull-2 justify-content-center align-self-center">' +
 							(JsonArray[0].completed == null ? '<button id="' +
 								JsonArray[i].user_id +
-								'"class="btn btn-primary ripple pull-left w-100 mb-2 choose-off">اختر هذا العرض</button>' : '') +
+								'"class="btn btn-primary ripple pull-left mw-100 choose-off"><i class="fas fa-check"></i></button>' : '') +
 							'<button id="report' +
 							i +
-							'"class="btn btn-danger ripple pull-left w-100">تبليغ عن العرض</button></div></div><h6 class="card-subtitle mb-2 ml-2 text-muted"><small id="created-at-' +
+							'"class="btn btn-danger ripple pull-left"><i class="fas fa-flag"></i></button></div></div><h6 class="card-subtitle mb-2 ml-2 text-muted"><small id="created-at-' +
 							i +
 							'" class="ml-3"><i class="fas fa-calendar-alt ml-1"></i>' +
 							created_at +
@@ -102,7 +102,7 @@ function loadProject(id) {
 					} else {
 						if (JsonArray[i].offer_own == 0) {
 							$('#offers-holder').append(
-								'<div class="card-text"><div class="row"><div class="col-sm-10 d-flex mb-3"><img src="' +
+								'<div class="card-text"><div class="row"><div class="col-10 d-flex mb-3"><img src="' +
 								JsonArray[i].userImage +
 								'" class="offer-avatar mb-auto mt-auto ml-4"><h5 id="freelancer-' +
 								i +
@@ -110,10 +110,10 @@ function loadProject(id) {
 								JsonArray[i].first_name +
 								' ' +
 								JsonArray[i].last_name +
-								'</h5></div><div class="col-sm-2 pull-sm-2">' +
+								'</h5></div><div class="col-2 pull-2 justify-content-center align-self-center">' +
 								'<button id="report' +
 								i +
-								'"class="btn btn-danger ripple pull-left w-100">تبليغ عن العرض</button></div></div><h6 class="card-subtitle mb-2 ml-2 text-muted"><small id="created-at-' +
+								'"class="btn btn-danger ripple pull-left"><i class="fas fa-flag"></i></button></div></div><h6 class="card-subtitle mb-2 ml-2 text-muted"><small id="created-at-' +
 								i +
 								'" class="ml-3"><i class="fas fa-calendar-alt ml-1"></i>' +
 								created_at +
@@ -137,7 +137,7 @@ function loadProject(id) {
 							);
 						} else {
 							$('#offers-holder').append(
-								'<div class="card-text"><div class="row"><div class="col-sm-10 d-flex mb-3"><img src="' +
+								'<div class="card-text"><div class="row"><div class="col-10 d-flex mb-3"><img src="' +
 								JsonArray[i].userImage +
 								'" class="offer-avatar mb-auto mt-auto ml-4"><h5 id="freelancer-' +
 								i +
@@ -145,8 +145,8 @@ function loadProject(id) {
 								JsonArray[i].first_name +
 								' ' +
 								JsonArray[i].last_name +
-								'</h5></div><div class="col-sm-2 pull-sm-2">' +
-								(JsonArray[0].completed == null ? '<button id="edit-offer" class="btn btn-primary ripple pull-left w-100 mb-2">تعديل العرض</button>' : '') + '<button id="remove-offer" class="btn btn-danger ripple pull-left w-100">حذف العرض</button></div></div><h6 class="card-subtitle mb-2 ml-2 text-muted"><small id="created-at-' +
+								'</h5></div><div class="col-2 pull-2 justify-content-center align-self-center">' +
+								(JsonArray[0].completed == null ? '<button id="edit-offer" class="btn btn-primary ripple pull-left mw-100 ml-1"><i class="fas fa-edit"></i></button>' : '') + '<button id="remove-offer" class="btn btn-danger ripple pull-left"><i class="fas fa-trash"></i></button></div></div><h6 class="card-subtitle mb-2 ml-2 text-muted"><small id="created-at-' +
 								i +
 								'" class="ml-3"><i class="fas fa-calendar-alt ml-1"></i>' +
 								created_at +
