@@ -42,6 +42,13 @@ function loadUser() {
                 $arr=$row;
             }
         }
+        if(isset($_SESSION['userID']))
+        {
+            if($_SESSION['userID'] == $id)
+                $arr['owner']=1;
+            else
+                $arr['owner']=0;
+        }
 
         echo json_encode($arr);
     }
