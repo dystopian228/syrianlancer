@@ -257,7 +257,7 @@
             die("Connection Failed: " . mysqli_connect_error());
         } else {
             $arr=array();
-            $sql="SELECT projects.*, users.first_name, users.last_name, users.image, count(offers.id) as offersNum, CAST(avg(offers.price) as decimal(18,2)) as offersAvg, freelancer_projects.completed from projects, users, offers, freelancer_projects where projects.id= ? and projects.owner_id = users.id and projects.id = offers.project_id and offers.id=freelancer_projects.offer_id and freelancer_projects.dropped=0";
+            $sql="SELECT projects.*, users.first_name, users.last_name, users.image as userImage, count(offers.id) as offersNum, CAST(avg(offers.price) as decimal(18,2)) as offersAvg, freelancer_projects.completed from projects, users, offers, freelancer_projects where projects.id= ? and projects.owner_id = users.id and projects.id = offers.project_id and offers.id=freelancer_projects.offer_id and freelancer_projects.dropped=0";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 die("Connection Failed: " . $stmt->error);        
@@ -287,7 +287,7 @@
                 }
             }
 
-            $sqlo="SELECT offers.user_id, offers.price, offers.duration, offers.description, offers.created_at, users.first_name, users.last_name, users.main_focus, users.image from offers, users where project_id= ? and users.id=offers.user_id";
+            $sqlo="SELECT offers.user_id, offers.price, offers.duration, offers.description, offers.created_at, users.first_name, users.last_name, users.main_focus, users.image as userImage from offers, users where project_id= ? and users.id=offers.user_id";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sqlo)) {
                 die("Connection Failed: " . $stmt->error);        
@@ -352,7 +352,6 @@
                     $result=mysqli_stmt_get_result($stmt);
                     if (mysqli_num_rows($result) > 0) { 
                         $arr['success']=0;
-                        echo mysqli_num_rows($result);
                     }
                     else {
                         mysqli_stmt_close($stmt);

@@ -28,7 +28,7 @@ function loadUser() {
         die("Connection Failed: " . mysqli_connect_error());
     }
     else{
-        $sql = 'select first_name, last_name, gender, birth_date, about_me, main_focus, isfreelancer, image, country_id, countries.name as country 
+        $sql = 'select users.id, first_name, last_name, gender, birth_date, about_me, main_focus, isfreelancer, image, country_id, countries.name as country 
         from users, countries
         where users.id='. $id .
         ' and countries.id = users.country_id';
@@ -65,11 +65,6 @@ function editUser() {
     if(isset($_POST['currentPassword']))
         $currentPassword = $_POST['currentPassword'];
 
-    if(isset($_POST['image']))
-        $image = $_POST['image'];
-    else 
-        $image = "./assets/images/placeholder.png";
-
     if(!$conn){
         die("Connection Failed: " . mysqli_connect_error());
     }
@@ -94,7 +89,7 @@ function editUser() {
                     }
                     else if($pwdcheck == true) {
                         $sql = "UPDATE users
-                        SET first_name = ?, last_name = ?, password = ?, gender = ?, birth_date = ?, updated_at = ?, image = ?, country_id = ?, main_focus = ?, isfreelancer = ?
+                        SET first_name = ?, last_name = ?, password = ?, gender = ?, birth_date = ?, updated_at = ?, country_id = ?, main_focus = ?, isfreelancer = ?
                         WHERE id = ". $_SESSION['userID'];
                         $stmt = mysqli_stmt_init($conn);
                         if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -102,7 +97,7 @@ function editUser() {
                         } else {
                         $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
                         $dateNow=date("Y-m-d H:i:s");
-                        mysqli_stmt_bind_param($stmt, "sssssssisi", $firstName, $lastName, $hashedPassword, $gender, $birthDate, $dateNow, $image, $country_id, $main_focus, $isfreelancer);
+                        mysqli_stmt_bind_param($stmt, "sssssssisi", $firstName, $lastName, $hashedPassword, $gender, $birthDate, $dateNow, $country_id, $main_focus, $isfreelancer);
                         mysqli_stmt_execute($stmt);
                         $arr['success'] = '1';
                         echo json_encode($arr);
@@ -113,13 +108,13 @@ function editUser() {
             }
         }
         else {
-            $sql = "UPDATE users SET first_name = ?, last_name = ?, gender = ?, birth_date = ?, updated_at = ?, image = ?, country_id = ?, main_focus = ?, isfreelancer = ? WHERE id = ". $_SESSION['userID'];
+            $sql = "UPDATE users SET first_name = ?, last_name = ?, gender = ?, birth_date = ?, updated_at = ?, country_id = ?, main_focus = ?, isfreelancer = ? WHERE id = ". $_SESSION['userID'];
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 die("Connection Failed: " . $stmt->error);
             } else {
             $dateNow=date("Y-m-d H:i:s");
-            mysqli_stmt_bind_param($stmt, "ssssssisi", $firstName, $lastName, $gender, $birthDate, $dateNow, $image, $country_id, $main_focus, $isfreelancer);
+            mysqli_stmt_bind_param($stmt, "ssssssisi", $firstName, $lastName, $gender, $birthDate, $dateNow, $country_id, $main_focus, $isfreelancer);
             mysqli_stmt_execute($stmt) or die($stmt->error);
             $arr['success'] = '1';
             echo json_encode($arr);

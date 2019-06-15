@@ -27,6 +27,7 @@ function loadProject(id) {
 			}
 			$('#project-name').html(JsonArray[0].name);
 			$('#owner-name').html(JsonArray[0].first_name + ' ' + JsonArray[0].last_name);
+			$('#project-avatar').attr("src", JsonArray[0].userImage);
 			var date = new Date(JsonArray[0].created_at);
 			$('#created_at').html(getFormattedDate(date));
 			$('#project-category').html(project_category);
@@ -60,7 +61,7 @@ function loadProject(id) {
 				if (JsonArray[0].owner == 1) {
 					$('#offers-holder').append(
 						'<div class="card-text"><div class="row"><div class="col-sm-10 d-flex mb-3"><img src="' +
-						JsonArray[i].image +
+						JsonArray[i].userImage +
 						'" class="offer-avatar mb-auto mt-auto ml-4"><h5 id="freelancer-' +
 						i +
 						'" class="primary-dark mb-auto mt-auto">' +
@@ -99,7 +100,7 @@ function loadProject(id) {
 					if (JsonArray[i].offer_own == 0) {
 						$('#offers-holder').append(
 							'<div class="card-text"><div class="row"><div class="col-sm-10 d-flex mb-3"><img src="' +
-							JsonArray[i].image +
+							JsonArray[i].userImage +
 							'" class="offer-avatar mb-auto mt-auto ml-4"><h5 id="freelancer-' +
 							i +
 							'" class="primary-dark mb-auto mt-auto">' +
@@ -134,7 +135,7 @@ function loadProject(id) {
 					} else {
 						$('#offers-holder').append(
 							'<div class="card-text"><div class="row"><div class="col-sm-10 d-flex mb-3"><img src="' +
-							JsonArray[i].image +
+							JsonArray[i].userImage +
 							'" class="offer-avatar mb-auto mt-auto ml-4"><h5 id="freelancer-' +
 							i +
 							'" class="primary-dark mb-auto mt-auto">' +
@@ -238,8 +239,8 @@ $(function () {
 			_price = false;
 		}
 
-		if (offerText.trim().length < 80 || offer.trim().length > 500) {
-			$('#text-error').html('يجب ان يكون طول النص غلى الأقل 80 محرف.');
+		if (offerText.trim().length < 80 || offerText.trim().length > 500) {
+			$('#text-error').html(' ويجب ان يكون طول النص غلى الأقل 80 محرف و 500 على الأكثر.');
 			_offerText = false;
 		}
 

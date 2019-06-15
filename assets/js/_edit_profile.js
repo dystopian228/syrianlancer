@@ -88,44 +88,37 @@ $(document).ready(function () {
 
 
     //Upload Image Script 
-    $(document).on('change','#image-input' , function(){
+    $(document).on('change', '#image-input', function () {
         var img = document.getElementById("image-input").files[0];
         var imgName = img.name;
         var imgExt = imgName.split('.').pop().toLowerCase();
-        if($.inArray(imgExt, ['gif','png','jpg','jpeg'] ) == -1)
-        {
+        if ($.inArray(imgExt, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
             $("#alert-div").html("<div class=\"alert alert-danger mb-5\" role=\"alert\">صيغة الملف غير صحيحة , الصيغ المسموحة : (gif, png, jpg, jpeg).</div>");
-        }
-        else
-        {
+        } else {
             var imgSize = img.size;
-            if(imgSize > 2000000)
-            {
+            if (imgSize > 2000000) {
                 $("#alert-div").html("<div class=\"alert alert-danger mb-5\" role=\"alert\">حجم الصورة المدخلة أكبر من الحد المسموح (2MB).</div>");
-            }
-            else
-            {
+            } else {
                 var formData = new FormData();
-                formData.append("file",img);
-                formData.append("idd","Ali");
+                formData.append("file", img);
+                formData.append("idd", "Ali");
                 $.ajax({
-                url:'src/Controllers/ImagesController.php',
-                method:'POST',
-                data:formData ,	
-                contentType:false, 
-                cache:false, 
-                processData:false,
-                success:function(response){
-                    var arr = $.parseJSON(response);
-                    if(arr['sql'] ==1 && arr['img'] ==1 ){
-                        $("#alert-div").html("<div class=\"alert alert-success mb-5\" role=\"alert\">تم تعديل صورتك الشخصية بنجاح.</div>"); 
-                        $("#profile-avatar").attr("src",arr['img_location']);
+                    url: 'src/Controllers/ImagesController.php',
+                    method: 'POST',
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (response) {
+                        var arr = $.parseJSON(response);
+                        if (arr['sql'] == 1 && arr['img'] == 1) {
+                            $("#alert-div").html("<div class=\"alert alert-success mb-5\" role=\"alert\">تم تعديل صورتك الشخصية بنجاح.</div>");
+                            $("#profile-avatar").attr("src", arr['img_location']);
 
+                        } else {
+                            $("#alert-div".html("<div class=\"alert alert-danger mb-5\" role=\"alert\">حصل خطأ. الرجاء المعاودة لاحقا.</div>"))
+                        }
                     }
-                    else{
-                        $("#alert-div".html("<div class=\"alert alert-danger mb-5\" role=\"alert\">حصل خطأ. الرجاء المعاودة لاحقا.</div>"))
-                    }
-                }
                 });
             }
         }

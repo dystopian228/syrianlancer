@@ -12,7 +12,7 @@ else {
 ?>
 
 <div class="row mt-5 justify-content-center">
-    <div class="col-md-4"></div>
+    <div id="edit-profile-col" class="col-md-4 p-5"></div>
     <div class="col-md-4 text-center">
         <img id="profile-image" src="./assets/clipart/anonymous.png" class="profile-img cent" onerror="this.src='./assets/images/placeholder.png'">
         <br>

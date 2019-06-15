@@ -31,6 +31,9 @@ function loadProfile(id) {
                 $('#profile-description').html(JsonObject.about_me);
             else
                 $('#profile-description').html('لا يوجد بيانات');
+            if (id == JsonObject.id) {
+                $('#edit-profile-col').html('<button id="edit-profile" onclick="location.href=\'edit_profile.php\'" class="btn btn-primary ripple pull-left w-50 mb-2">تعديل المعلومات</button>');
+            }
             loadOwnedProjects(id, 1);
             loadWorkedProjects(id, 1);
         },
