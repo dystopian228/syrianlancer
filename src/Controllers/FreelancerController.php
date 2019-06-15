@@ -12,7 +12,7 @@ if (!$conn) {
     $page = $_GET['page'];
     $pageLimit = $_GET['pageLimit'];
 
-    $sql = "SELECT distinct users.id as userID , concat(users.first_name,' ',users.last_name) as name ,users.main_focus as mainFocus,
+    $sql = "SELECT distinct users.id as userID , concat(users.first_name,' ',users.last_name) as name ,users.main_focus as mainFocus, image,
     (SELECT COALESCE(AVG(freelancer_projects.rating),0) FROM freelancer_projects,`offers` WHERE offers.user_id=users.id AND offers.id=freelancer_projects.offer_id and (freelancer_projects.completed=1 or freelancer_projects.dropped=1)) as rating
     FROM users
     WHERE

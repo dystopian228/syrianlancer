@@ -36,7 +36,7 @@ $(document).ready(function () {
         }
     });
 
-
+    fetchMessages()
     setInterval(function () {
         fetchMessages();
     }, 2000);
@@ -102,8 +102,7 @@ function fetchMessages() {
                     color="MEDIUMSEAGREEN";
                 else
                     color="darkorange";
-                $("#messages-content").append('<div><h5 style="color:'+color+'"><b>'+arr[i]['senderName']+'</b></h5><br><h4>'+arr[i]['message']+'</h4><h6 style="text-align:left">'+arr[i]['sentAT']+'</h6> <hr class="mb-5"> </div>');
-
+                $("#messages-content").append('<div class="msg"><h4><b style="color:'+color+'">'+arr[i]['senderName']+' : </b>'+arr[i]['message']+'</h4><h6 style="text-align:right">'+arr[i]['sentAT']+'</h6> <hr class="mb-4"> </div>');
                 //'<div><h6>'+arr[i]['senderName']+'</h6><br><h4>'+arr[i]['message']+'</h4><h6 style="text-align:left">'+arr[i]['sentAT']+'</h6> <hr class="mb-5"> </div>'
             }
         },
@@ -127,6 +126,6 @@ function fetchMessages() {
             alert(msg);
         }
     });
-  
+    
 }
 
