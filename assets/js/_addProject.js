@@ -61,6 +61,8 @@ function addForm() {
                 var JsonArray = $.parseJSON(response);
                 if (JsonArray.success == '1') {
                     location.href = "project.php?fid=2&id=" + JsonArray.id;
+                } else {
+                    $("#error-div").append("ليس معك رصيد كافي.</br>");
                 }
 
 
