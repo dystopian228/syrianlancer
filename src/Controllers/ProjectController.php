@@ -590,23 +590,23 @@ function addProject()
     $low_palance = $_POST['low_palance'];
     $high_palance = $_POST['high_palance'];
     $duration = $_POST['duration'];
+    echo $duration;
     $deleted = 0;
     $archived = 0;
-    $image='.png';
+    $image='./assets/images/placeholder.png';
+    $user_id=$_SESSION['userID'];
 
     if (!$conn) {
         die("Connection Failed: " . mysqli_connect_error());
     } else {
-
         $arr = array();
-        $sql = "insert into projects (name , description , low_palance , high_balance , duration , img  , deleted ,archived , created_at , updated_at, category ,owner_id) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "insert into projects (name , description , low_balance , high_balance , duration , image, deleted ,archived , created_at , updated_at, category ,owner_id) values (?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             die("Connection Failed: " . mysqli_connect_error());
         } else {
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $dateNow=date("Y-m-d H:i:s");
-            mysqli_stmt_bind_param($stmt, "ssiississssi", $firstName, $lastName, $userName, $email, $hashedPassword, $birthDate, $gender, $deleted, $verified, $dateNow, $countryID,$balance,$isfreelancer,$dateNow,$image);
+            mysqli_stmt_bind_param($stmt, "ssiiisiisssi", $projectName, $description, $low_palance, $high_palance, $duration, $image, $deleted, $archived, $dateNow, $dateNow, $category,$user_id);
             mysqli_stmt_execute($stmt);
             //$arr['success']=mysqli_stmt_error($stmt);
             $arr['success'] = '1';
