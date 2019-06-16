@@ -32,6 +32,8 @@ session_start();
         echo '<script src="./assets/js/_chat.js"></script>';
     if (basename($_SERVER['PHP_SELF']) == 'profile.php')
         echo '<script src="./assets/js/_profile.js"></script>';
+    if (basename($_SERVER['PHP_SELF']) == 'dashboard.php')
+        echo '<script src="./assets/js/_dashboard.js"></script>';
     ?>
 
     <link rel="stylesheet" href="./assets/stylesheets/main.css">
