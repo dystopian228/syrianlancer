@@ -660,7 +660,7 @@ function handoverProject(){
         $sql = "update projects set archived=1 where projects.id = (select offers.project_id from offers , freelancer_projects where freelancer_projects.offer_id = offers.id and freelancer_projects.id = ".$freelancer_projects_id.")";
         $conn->query($sql);
 
-        $sql = "update users set balance = (balance + (select offers.price from offers , freelancer_projects where offers.id = freelancer_projects.offer_id and freelancer_projects.id = ".$freelancer_projects_id." )) where users.id = ".$userID;
+        $sql = "update users set balance = (balance + (select (offers.price*0.1) from offers , freelancer_projects where offers.id = freelancer_projects.offer_id and freelancer_projects.id = ".$freelancer_projects_id." )) where users.id = ".$userID;
         $conn->query($sql);
 
         $sql = "update users set balance = (balance - (select offers.price from offers , freelancer_projects where offers.id = freelancer_projects.offer_id and freelancer_projects.id = ".$freelancer_projects_id." )) where users.id = ".$ownerID;
