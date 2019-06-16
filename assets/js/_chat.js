@@ -127,7 +127,6 @@ $(document).ready(function () {
                 datatype: 'text',
                 data: "fid=8&freelancer_projects_id="+freelancer_projects+"&message="+message+"&notes="+notes+"&ownerID="+ownerID,
                 success:function (response){
-                    alert(response);
                     $('#handoverModal').modal('hide');
                     location.reload();
                 },error:  function (jqXHR, exception) {
