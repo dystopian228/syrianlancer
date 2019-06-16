@@ -5,7 +5,7 @@
     min-width: 100%;
     height: 40vw;
     background-color: $primary;
-    z-index: -2;
+    z-index: -1;
     padding: 0px;
 
     #sl-jumbo {
@@ -20,7 +20,6 @@
         background-size: cover;
         height: 100%;
         width: 100%;
-        z-index: -1;
     }
 }
 
@@ -36,37 +35,6 @@
     margin-right: auto;
 }
 
-.categories {
-    background: $light-grey;
-    display: block;
-    text-align: center;
-
-    .category-card {
-        padding: 80px;
-        display: inline-block;
-        color: white;
-        margin: auto;
-    }
-
-    .category-card:hover {
-        opacity: .9;
-        cursor: pointer;
-    }
-
-    #programmming-card {
-        background: url('../images/computers.png') no-repeat center;
-    }
-
-    #consulting-card {
-        background: url('../images/computers.png') no-repeat center;
-    }
-
-    #translation-card {
-        background: url('../images/computers.png') no-repeat center;
-    }
-
-    #marketing-card {
-        background: url('../images/computers.png') no-repeat center;
-
-    }
+.lancer-categories {
+    background-color: $primary;
 }

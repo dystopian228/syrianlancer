@@ -1,7 +1,7 @@
 <footer>
 <div class="container">
     <div class="row footer mt-5">
-        <div class="col-lg-4 col-6">
+        <div class="col-lg-4 col-6 text-center">
             <h5>SyrianLancer</h5>
             <ul class="footer-items">
                 <li><a href="#">عن Syrianlancer</a></li>
@@ -10,7 +10,7 @@
                 <li><a href="#">تواصل معنا</a></li>
             </ul>
         </div>
-        <div class="col-lg-4 col-6">
+        <div class="col-lg-4 col-6 text-center">
         <h5>الأعمال</h5>
             <ul class="footer-items">
             <li><a href="#">الأعمال البرمجية</a></li>
@@ -20,7 +20,7 @@
             <li><a href="#">الأعمال الأدبية</a></li>
             </ul>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 text-center">
         <h5>روابط مهمة</h5>
             <ul class="footer-items">
             <li><a href="#">معرض الأعمال</a></li>
