@@ -114,6 +114,7 @@ $(document).ready(function () {
                         if (arr['sql'] == 1 && arr['img'] == 1) {
                             $("#alert-div").html("<div class=\"alert alert-success mb-5\" role=\"alert\">تم تعديل صورتك الشخصية بنجاح.</div>");
                             $("#profile-avatar").attr("src", arr['img_location']);
+                            $("#header-prof").attr("src", arr['img_location']);
 
                         } else {
                             $("#alert-div".html("<div class=\"alert alert-danger mb-5\" role=\"alert\">حصل خطأ. الرجاء المعاودة لاحقا.</div>"))

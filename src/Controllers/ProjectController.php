@@ -584,42 +584,71 @@
         mysqli_close($conn);
     }
 
-function addProject()
-{
-    global $conn;
-    $projectName = $_POST['projectName'];
-    $category = $_POST['category'];
-    $description = $_POST['description'];
-    $low_palance = $_POST['low_palance'];
-    $high_palance = $_POST['high_palance'];
-    $duration = $_POST['duration'];
-    echo $duration;
-    $deleted = 0;
-    $archived = 0;
-    $image='./assets/images/placeholder.png';
-    $user_id=$_SESSION['userID'];
-
-    if (!$conn) {
-        die("Connection Failed: " . mysqli_connect_error());
-    } else {
+    function addProject()
+    {
+        global $conn;
+        $projectName = $_POST['projectName'];
+        $category = $_POST['category'];
+        $description = $_POST['description'];
+        $low_palance = $_POST['low_palance'];
+        $high_palance = $_POST['high_palance'];
+        $duration = $_POST['duration'];
+        $deleted = 0;
+        $archived = 0;
+        $image='./assets/images/placeholder.png';
+        $user_id=$_SESSION['userID'];
         $arr = array();
-        $sql = "insert into projects (name , description , low_balance , high_balance , duration , image, deleted ,archived , created_at , updated_at, category ,owner_id) values (?,?,?,?,?,?,?,?,?,?,?,?)";
-        $stmt = mysqli_stmt_init($conn);
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $userBalance=0;
+        if (!$conn) {
             die("Connection Failed: " . mysqli_connect_error());
         } else {
-            $dateNow=date("Y-m-d H:i:s");
-            mysqli_stmt_bind_param($stmt, "ssiiisiisssi", $projectName, $description, $low_palance, $high_palance, $duration, $image, $deleted, $archived, $dateNow, $dateNow, $category,$user_id);
-            mysqli_stmt_execute($stmt);
-            //$arr['success']=mysqli_stmt_error($stmt);
-            $arr['success'] = '1';
-
-            echo json_encode($arr);
-        }
-        mysqli_stmt_close($stmt);
+            $sql1="SELECT sum(high_balance) as sum, (select balance from users where id=".$user_id.") as bal FROM projects  WHERE owner_id =".$user_id ." and deleted=0 and archived=0"; 
+            $stmt = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt, $sql1)) {
+                die("Connection Failed: " . $stmt->error);
+            } else {
+                mysqli_stmt_execute($stmt) or die($stmt->error);
+                //$arr['success']=mysqli_stmt_error($stmt);
+            }
+            $result=mysqli_stmt_get_result($stmt);
+            $total=0;
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result) ) {
+                    $total=$row['sum'];
+                    $userBalance=$row['bal'];
+                }
+            }
+            else $total=0;
+            $total_palance = floatval($total)+ floatval($high_palance);
+            mysqli_stmt_close($stmt);
+            if(floatval($total_palance) < floatval($userBalance))
+            {
+                $sql = "insert into projects (name , description , low_balance , high_balance , duration , image, deleted ,archived , created_at , updated_at, category ,owner_id) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    die("Connection Failed: " . $stmt->error);
+                } else {
+                    $dateNow=date("Y-m-d H:i:s");
+                    mysqli_stmt_bind_param($stmt, "ssiiisiisssi", $projectName, $description, $low_palance, $high_palance, $duration, $image, $deleted, $archived, $dateNow, $dateNow, $category,$user_id);
+                    mysqli_stmt_execute($stmt) or die($stmt->error);
+                    //$arr['success']=mysqli_stmt_error($stmt);
+                    $arr['success'] = '1';
+                    $arr['error'] = 0;
+                    $last_id = $conn->insert_id;
+                    $arr['id']=$last_id;
+                }
+                mysqli_stmt_close($stmt);
+            }
+            else
+            {
+                $arr['error']=1;
+                $arr['success']=0;
+            }
     }
-    mysqli_close($conn);
-}
+    echo json_encode($arr);
+    
+        mysqli_close($conn);
+    }  
 
 function handoverProject(){
     global $conn;

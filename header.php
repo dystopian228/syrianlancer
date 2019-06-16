@@ -60,7 +60,14 @@ session_start();
            <i class="fas fa-user-plus ml-md-1"></i>
        </button>';
             } else {
-                echo '<button type="button" onClick="logout()"
+                echo '<button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img id="header-prof" src="'. $_SESSION['image'] .'" class="header-profile-img cent" onerror="this.src=\'./assets/images/placeholder.png\'">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="profile.php">الصفحة الشخصية</a>
+                <a class="dropdown-item" href="dashboard.php">السجل المالي</a>
+                <a class="dropdown-item" href="edit_profile.php">الإعدادات</a>
+              </div><button type="button" onClick="logout()"
             class="btn btn-outline-primary">
                <span class="btn-text">تسجيل الخروج</span>
                <i class="fas fa-sign-out-alt"></i>
@@ -76,10 +83,6 @@ session_start();
                 <li><a class="nav-link" href="addProject.php">أضف عمل</a></li>
                 <li><a class="nav-link" href="browse.php">تصفح الأعمال</a></li>
                 <li><a class="nav-link" href="freelancers.php">تصفح المستقلين</a></li>
-                <?php
-                if (isset($_SESSION['userID']))
-                    echo '<li><a class="nav-link" href="profile.php">صفحتي الشخصية</a></li>'
-                    ?>
             </ul>
         </div>
     </nav>

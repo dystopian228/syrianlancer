@@ -5,14 +5,15 @@ function addForm() {
     let projectName = $("#pName").val();
     let category = $("#category").val();
     let description = $("#description").val();
-    let palance = $("#palance").val();
     let duration = $("#duration").val();
-    alert(duration);
+    var high_balance = $('#high-balance').val();
+    var low_balance = $('#low-balance').val();
 
     let _projectName = true;
     let _category = true;
     let _description = true;
-    let _palance = true;
+    let _low_balance = true;
+    let _high_balance = true;
     let _duration = true;
 
 
@@ -25,7 +26,17 @@ function addForm() {
     if (description.trim().length < 80 || description.trim().length > 1500) {
         _firstName = false;
         $("#error-div").append("توصيف المشروع يجب أن لا يقل عن 80 حرف ولا يزيد على 1500. </br>");
+    }
 
+    if (duration < 1 || duration > 356) {
+        _duration = false;
+        $("#error-div").append("مدة التسليم يجب أن لا يقل عن 1 يوم ولا يزيد على 356 يوم. </br>");
+    }
+
+    if (low_balance < 15000 || high_balance < 15000) {
+        _low_balance = false;
+        _high_balance = false;
+        $("#error-div").append("الميزانية يجب أن لا يقل عن 15000. </br>");
     }
     var project_category;
     if (category == "خدمات استشارية و إدارية")
@@ -38,41 +49,18 @@ function addForm() {
         project_category = "training";
     else project_category = "other";
 
-    var high_palance;
-    var low_palance;
-    if (palance == "15-25 ألف") {
-        high_palance = 25;
-        low_palance = 15;
-    } else if (palance == "25-50 ألف") {
-        high_palance = 50;
-        low_palance = 25;
-    } else if (palance == "50-125 ألف") {
-        high_palance = 125;
-        low_palance = 50;
-    } else if (palance == "125-250 ألف") {
-        high_palance = 250;
-        low_palance = 125;
-    } else if (palance == "250-400 ألف") {
-        high_palance = 400;
-        low_palance = 250;
-    } else if (palance == "400-500 ألف") {
-        high_palance = 500;
-        low_palance = 400;
-    }
 
-    if (_projectName && _category && _description && _palance && _duration) {
+    if (_projectName && _category && _description && _high_balance && _low_balance && _duration) {
         $.ajax({
             type: 'POST',
             url: 'src/Controllers/ProjectController.php',
             datatype: 'text',
-            data: "fid=7&projectName=" + projectName.trim() + "&category=" + category + "&description=" + description.trim() + "&high_palance=" + high_palance + "&low_palance=" + low_palance + "&duration=" + duration,
+            data: "fid=7&projectName=" + projectName.trim() + "&category=" + category + "&description=" + description.trim() + "&high_palance=" + high_balance + "&low_palance=" + low_balance + "&duration=" + duration,
             success: function (response) {
                 //$("#error-div").append(response);
                 var JsonArray = $.parseJSON(response);
-
-                if (JsonArray['success'] == '1') {
-                    $("#reg-form").hide(250);
-                    $("#reg-done").show(250);
+                if (JsonArray.success == '1') {
+                    location.href = "project.php?fid=2&id=" + JsonArray.id;
                 }
 
 

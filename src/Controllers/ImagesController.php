@@ -24,6 +24,7 @@ if($_FILES["file"]["name"] != '')
         $sql = "UPDATE users SET image = '".$DBLocation."' WHERE id = ".$_SESSION['userID'];
         if ($conn->query($sql) === TRUE) {
             $arr['sql']=1;
+            $_SESSION['image']=$DBLocation;
         } else {
             $arr['sql']=0;
         }

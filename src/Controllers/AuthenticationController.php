@@ -131,6 +131,7 @@ function loginSubmit(){
                     session_start(); 
                     $_SESSION['username']=$row['username']; 
                     $_SESSION['userID']=$row['id'];
+                    $_SESSION['image']=$row['image'];
                 }
             }
             else{
