@@ -60,9 +60,7 @@ function addForm() {
         low_palance = 400;
     }
 
-    alert("fsfsdfdsfdsfdsf");
     if (_projectName && _category && _description && _palance && _duration) {
-        alert("432432");
         $.ajax({
             type: 'POST',
             url: 'src/Controllers/ProjectController.php',
@@ -70,7 +68,6 @@ function addForm() {
             data: "fid=7&projectName=" + projectName.trim() + "&category=" + category + "&description=" + description.trim() + "&high_palance=" + high_palance + "&low_palance=" + low_palance + "&duration=" + duration,
             success: function (response) {
                 //$("#error-div").append(response);
-                alert(response);
                 var JsonArray = $.parseJSON(response);
 
                 if (JsonArray['success'] == '1') {
