@@ -34,7 +34,8 @@ function loadProfile(id) {
                 $('#profile-description').html('لا يوجد بيانات');
             if (JsonObject.owner == 1) {
                 _owner = true;
-                $('#edit-profile-col').html('<button id="edit-profile" onclick="window.location.href=\'edit_profile.php\'" class="btn btn-primary ripple pull-left w-50 mb-2">تعديل المعلومات</button>');
+                $('#edit-profile-col').html('<button id="edit-profile" onclick="window.location.href=\'edit_profile.php\'" class="btn btn-primary ripple pull-left w-50 mb-2">تعديل المعلومات</button><br><button id="dashboard" onclick="window.location.href=\'dashboard.php\'" class="btn btn-primary ripple pull-left w-50 mb-2">السجل المالي</button>');
+                
             }
             loadOwnedProjects(id, 1, _owner);
             loadWorkedProjects(id, 1, _owner);
