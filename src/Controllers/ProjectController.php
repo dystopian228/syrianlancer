@@ -29,6 +29,9 @@
     if($fid==7){
         addProject();
     }
+    if($fid==8){
+        handoverProject();
+    }
     function loadProjects(){
         global $conn;
 
@@ -616,6 +619,57 @@ function addProject()
         mysqli_stmt_close($stmt);
     }
     mysqli_close($conn);
+}
+
+function handoverProject(){
+    global $conn;
+    
+    $freelancer_projects_id = $_POST['freelancer_projects_id'];
+    $message = $_POST['message']; 
+    $notes = $_POST['notes'];
+    $userID = $_SESSION['userID'];
+    $ownerID = $_POST['ownerID'];
+
+    if(!$conn){
+        die("Connection Failed: " . mysqli_connect_error());
+    }else{
+        
+        $sql = "update freelancer_projects set completed=1,notes= ?,finished_at=? where id =? ";
+        $stmt = mysqli_stmt_init($conn); 
+        if(!mysqli_stmt_prepare($stmt,$sql)){
+            die("Connection Failed: " . mysqli_connect_error());
+        }
+        else{
+            $dateNow=date("Y-m-d H:i:s");
+            mysqli_stmt_bind_param($stmt,"ssi",$notes,$dateNow,$freelancer_projects_id); 
+            mysqli_stmt_execute($stmt) or die($stmt->error);
+        }
+
+        $sql = "insert into messages (content,sent_at,receive,sender_id,receiver_id,freelancer_project_id) values (?,?,?,?,?,?)";
+        $stmt = mysqli_stmt_init($conn); 
+        if(!mysqli_stmt_prepare($stmt,$sql)){
+            die("Connection Failed: " . mysqli_connect_error());
+        }
+        else{
+            $dateNow=date("Y-m-d H:i:s");
+            $r=1;
+            mysqli_stmt_bind_param($stmt,"ssiiii",$message,$dateNow,$r,$userID,$ownerID,$freelancer_projects_id); 
+            mysqli_stmt_execute($stmt) or die($stmt->error);
+        }
+
+        $sql = "update projects set archived=1 where projects.id = (select offers.project_id from offers , freelancer_projects where freelancer_projects.offer_id = offers.id and freelancer_projects.id = ".$freelancer_projects_id.")";
+        $conn->query($sql);
+
+        $sql = "update users set balance = (balance + (select offers.price from offers , freelancer_projects where offers.id = freelancer_projects.offer_id and freelancer_projects.id = ".$freelancer_projects_id." )) where users.id = ".$userID;
+        $conn->query($sql);
+
+        $sql = "update users set balance = (balance - (select offers.price from offers , freelancer_projects where offers.id = freelancer_projects.offer_id and freelancer_projects.id = ".$freelancer_projects_id." )) where users.id = ".$ownerID;
+        $conn->query($sql);
+
+        mysqli_stmt_close($stmt);
+
+    }
+    mysqli_close($conn); 
 }
 
 

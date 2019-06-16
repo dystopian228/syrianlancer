@@ -13,7 +13,9 @@ if ($_POST['fid'] == '2') {
 if ($_POST['fid'] == '3') {
     fetchMessages();
 }
-
+if ($_POST['fid'] == '4'){
+    checkReceiver();
+}
 
 function getUserIDs()
 {
@@ -109,4 +111,43 @@ function fetchMessages()
         echo json_encode($arr);
     }
     mysqli_close($conn);
+}
+
+function checkReceiver(){
+    global $conn; 
+    
+    $userID = $_POST['userID'];
+    $freelancer_projects_id = $_POST['freelancer_projects_id'];
+
+    $state=true;
+
+    if($_SESSION['userID'] != $userID) {
+        $state = false;
+    }
+
+    if(!$conn){
+        die("Connection Failed: " . mysqli_connect_error());
+    }else{
+        $arr = array(); 
+
+        $sql = 'select completed , dropped from freelancer_projects where id = '.$freelancer_projects_id;
+
+        $result = mysqli_query($conn, $sql);
+        
+        while ($row = mysqli_fetch_array($result)) {
+            if($row['completed']==1 || $row['dropped']==1){
+                $state =false;
+            }
+        }
+
+        if($state == true){
+            echo 1; 
+        }
+        else{
+            echo 0;
+        }
+
+        $conn->close();
+
+    }
 }
